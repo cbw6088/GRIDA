@@ -2,25 +2,250 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #111111;
+  --muted: #737373;
+  --accent: #111111;
+  --soft: #f4f4f4;
+  --line: #e8e8e8;
+  --surface: #ffffff;
+  --shape-sage: 142, 158, 148;
+  --shape-clay: 188, 160, 138;
+  --shape-slate: 132, 148, 168;
+  --shape-sand: 198, 186, 158;
+  --shape-mist: 168, 176, 180;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-soft: var(--soft);
+  --color-line: var(--line);
+  --color-surface: var(--surface);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-body);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), sans-serif;
+}
+
+::selection {
+  background: #111111;
+  color: #ffffff;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drift-y {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  25% {
+    transform: translate3d(0, -8px, 0);
+  }
+  50% {
+    transform: translate3d(0, 0, 0);
+  }
+  75% {
+    transform: translate3d(0, 8px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes drift-xy {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate3d(5px, -4px, 0) rotate(1deg);
+  }
+  50% {
+    transform: translate3d(0, -2px, 0) rotate(0deg);
+  }
+  75% {
+    transform: translate3d(-5px, 4px, 0) rotate(-1deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+}
+
+@keyframes drift-spin {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate3d(-4px, 3px, 0) rotate(-1.5deg);
+  }
+  50% {
+    transform: translate3d(0, 5px, 0) rotate(0deg);
+  }
+  75% {
+    transform: translate3d(4px, 2px, 0) rotate(1.5deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+}
+
+@keyframes soft-pulse {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.025);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(0.985);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes orb-breathe {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  25% {
+    transform: scale(1.035) translate3d(0.8%, -0.5%, 0);
+  }
+  50% {
+    transform: scale(1.01) translate3d(0, 0.4%, 0);
+  }
+  75% {
+    transform: scale(0.98) translate3d(-0.6%, 0.3%, 0);
+  }
+  100% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes ring-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes draw-line {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+@keyframes reveal-shape {
+  from {
+    transform: scale(0.92) translateY(10px);
+  }
+  to {
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-fade-up-1 {
+  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+.animate-fade-up-2 {
+  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+.animate-fade-up-3 {
+  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.32s both;
+}
+
+.animate-soft-pulse {
+  animation: soft-pulse 8s linear infinite both;
+}
+
+.animate-orb-breathe {
+  animation: orb-breathe 10s linear infinite both;
+}
+
+.animate-drift-y {
+  animation: drift-y 9s linear infinite both;
+}
+
+.animate-drift-xy {
+  animation: drift-xy 11s linear infinite both;
+}
+
+.animate-drift-spin {
+  animation: drift-spin 12s linear infinite both;
+}
+
+.animate-ring-spin {
+  animation: ring-spin 48s linear infinite;
+}
+
+.animate-draw-line {
+  transform-origin: left;
+  animation: draw-line 1s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+}
+
+.animate-dash-flow {
+  stroke-dasharray: 6 10;
+  animation: dash-flow 22s linear infinite;
+}
+
+.animate-reveal-1 {
+  animation: reveal-shape 1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+.animate-reveal-2 {
+  animation: reveal-shape 1s cubic-bezier(0.22, 1, 0.36, 1) 0.28s both;
+}
+
+.animate-reveal-3 {
+  animation: reveal-shape 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+}
+
+.animate-reveal-4 {
+  animation: reveal-shape 1s cubic-bezier(0.22, 1, 0.36, 1) 0.52s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-drift-y,
+  .animate-drift-xy,
+  .animate-drift-spin,
+  .animate-soft-pulse,
+  .animate-orb-breathe,
+  .animate-ring-spin,
+  .animate-dash-flow {
+    animation: none !important;
+  }
 }
