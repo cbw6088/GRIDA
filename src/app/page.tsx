@@ -29,7 +29,7 @@ export default function HomePage() {
       <section className="relative isolate min-h-[100dvh] overflow-hidden bg-white">
         <HeroGeometry />
 
-        <div className="relative mx-auto flex min-h-[100dvh] w-full max-w-6xl flex-col justify-center px-5 pb-20 pt-28 sm:px-8">
+        <div className="relative mx-auto flex min-h-[100dvh] w-full max-w-6xl flex-col justify-center px-5 pb-20 pt-44 sm:px-8">
           <p className="animate-fade-up text-sm tracking-[0.22em] text-muted">
             도배 시공
           </p>

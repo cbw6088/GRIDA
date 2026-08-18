@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -32,10 +33,20 @@ export function SiteHeader() {
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between sm:h-[4.5rem]">
         <Link
           href="/"
-          className="text-lg font-medium tracking-tight text-foreground sm:text-xl"
+          className="flex items-center gap-2.5 text-foreground transition-opacity hover:opacity-70"
           onClick={() => setOpen(false)}
         >
-          {siteConfig.name}
+          <Image
+            src="/brand/logo-d-mark.png"
+            alt=""
+            width={40}
+            height={40}
+            className="h-10 w-10 object-contain"
+            priority
+          />
+          <span className="text-lg font-medium tracking-tight sm:text-xl">
+            {siteConfig.name}
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="주 메뉴">

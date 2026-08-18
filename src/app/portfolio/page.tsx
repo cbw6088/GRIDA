@@ -16,7 +16,7 @@ const works = [
 
 export default function PortfolioPage() {
   return (
-    <main className="px-5 pb-24 pt-28 sm:px-8 md:pb-32 md:pt-36">
+    <main className="px-5 pb-24 pt-44 sm:px-8 md:pb-32 md:pt-48">
       <div className="mx-auto w-full max-w-6xl">
         <p className="text-sm tracking-[0.22em] text-muted">포트폴리오</p>
         <h1 className="mt-4 text-4xl font-medium tracking-tight text-foreground sm:text-5xl">

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function WallpaperPage() {
   return (
-    <main className="relative overflow-hidden px-5 pb-24 pt-28 sm:px-8 md:pb-32 md:pt-36">
+    <main className="relative overflow-hidden px-5 pb-24 pt-44 sm:px-8 md:pb-32 md:pt-48">
       <div
         className="pointer-events-none absolute -right-16 top-24 h-64 w-64 rounded-full blur-3xl"
         style={{ background: "rgba(var(--shape-sage), 0.18)" }}
@@ -58,7 +58,7 @@ export default function WallpaperPage() {
             <article
               key={item.id}
               id={item.id}
-              className="scroll-mt-28 grid items-center gap-8 md:grid-cols-2 md:gap-14"
+              className="scroll-mt-44 grid items-center gap-8 md:grid-cols-2 md:gap-14"
             >
               <div className={reverse ? "md:order-2" : undefined}>
                 <div
