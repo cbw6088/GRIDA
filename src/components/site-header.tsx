@@ -23,13 +23,13 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-40 border-b border-[#ececec] transition-[background-color,backdrop-filter] duration-500 ${
+      className={`fixed inset-x-0 top-0 z-40 border-b border-[#ececec] px-5 transition-[background-color,backdrop-filter] duration-500 sm:px-8 ${
         scrolled || open
           ? "bg-white/80 backdrop-blur-md"
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5 sm:h-[4.5rem] sm:px-8">
+      <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between sm:h-[4.5rem]">
         <Link
           href="/"
           className="text-lg font-medium tracking-tight text-foreground sm:text-xl"

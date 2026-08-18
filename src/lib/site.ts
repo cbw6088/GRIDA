@@ -5,6 +5,7 @@ export const siteConfig = {
   nav: [
     { href: "/", label: "홈", labelEn: "Home" },
     { href: "/introduction", label: "소개", labelEn: "Introduction" },
+    { href: "/wallpaper", label: "도배지 안내", labelEn: "Wallpaper" },
     { href: "/portfolio", label: "포트폴리오", labelEn: "Portfolio" },
     { href: "/contact", label: "연락하기", labelEn: "Contact us" },
   ],
