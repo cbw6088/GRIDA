@@ -58,11 +58,11 @@ export default function WallpaperPage() {
             <article
               key={item.id}
               id={item.id}
-              className="scroll-mt-44 grid items-center gap-8 md:grid-cols-2 md:gap-14"
+              className="scroll-mt-44 grid items-start gap-8 md:grid-cols-2 md:items-stretch md:gap-14"
             >
               <div className={reverse ? "md:order-2" : undefined}>
                 <div
-                  className="relative aspect-[4/3] overflow-hidden"
+                  className="relative min-h-[320px] overflow-hidden md:h-full md:min-h-[560px]"
                   style={{ background: item.tone }}
                 >
                   <Image
