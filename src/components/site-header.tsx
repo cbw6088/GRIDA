@@ -68,26 +68,30 @@ export function SiteHeader() {
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center text-foreground md:hidden"
+          className="inline-flex h-10 w-10 shrink-0 items-center justify-center overflow-visible text-foreground md:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "메뉴 닫기" : "메뉴 열기"}
           onClick={() => setOpen((value) => !value)}
         >
-          <span className="flex w-5 flex-col gap-1.5">
+          <span className="relative block h-5 w-5" aria-hidden>
             <span
-              className={`h-px w-full bg-foreground transition-transform ${
-                open ? "translate-y-[3.5px] rotate-45" : ""
+              className={`absolute left-0 block h-px w-full origin-center bg-foreground transition-all duration-300 ${
+                open
+                  ? "top-1/2 -translate-y-1/2 rotate-45"
+                  : "top-0"
               }`}
             />
             <span
-              className={`h-px w-full bg-foreground transition-opacity ${
+              className={`absolute left-0 top-1/2 block h-px w-full -translate-y-1/2 bg-foreground transition-opacity duration-300 ${
                 open ? "opacity-0" : "opacity-100"
               }`}
             />
             <span
-              className={`h-px w-full bg-foreground transition-transform ${
-                open ? "-translate-y-[3.5px] -rotate-45" : ""
+              className={`absolute left-0 block h-px w-full origin-center bg-foreground transition-all duration-300 ${
+                open
+                  ? "top-1/2 -translate-y-1/2 -rotate-45"
+                  : "bottom-0"
               }`}
             />
           </span>
