@@ -1,27 +1,9 @@
 import Link from "next/link";
 import { HeroGeometry } from "@/components/hero-geometry";
+import { getCategoryLabel, getFeaturedProjects } from "@/lib/portfolio";
 import { siteConfig } from "@/lib/site";
 
-const previewWorks = [
-  {
-    title: "거실 도배",
-    type: "주거 공간",
-    fill: "rgba(142, 158, 148, 0.28)",
-    accent: "rgba(142, 158, 148, 0.55)",
-  },
-  {
-    title: "침실 리모델링",
-    type: "주거 공간",
-    fill: "rgba(188, 160, 138, 0.28)",
-    accent: "rgba(188, 160, 138, 0.55)",
-  },
-  {
-    title: "상업 공간 마감",
-    type: "상업 공간",
-    fill: "rgba(132, 148, 168, 0.28)",
-    accent: "rgba(132, 148, 168, 0.55)",
-  },
-];
+const previewWorks = getFeaturedProjects(3);
 
 export default function HomePage() {
   return (
@@ -118,39 +100,51 @@ export default function HomePage() {
           </div>
 
           <ul className="mt-12 grid gap-4 md:grid-cols-3">
-            {previewWorks.map((work, index) => (
-              <li key={work.title} className="group">
-                <div
-                  className="relative aspect-[4/5] overflow-hidden transition-transform duration-700 ease-out group-hover:-translate-y-0.5"
-                  style={{ background: work.fill }}
-                >
-                  <div
-                    className="absolute -right-8 -top-8 h-36 w-36 rounded-full blur-2xl transition-opacity duration-500 group-hover:opacity-100"
-                    style={{
-                      background: work.accent,
-                      opacity: 0.55,
-                    }}
-                  />
-                  <div
-                    className="absolute right-5 top-5 h-9 w-9 border transition-transform duration-500 group-hover:rotate-45"
-                    style={{ borderColor: work.accent }}
-                  />
-                  <div
-                    className="absolute left-5 top-5 h-2 w-2 rounded-full"
-                    style={{ background: work.accent }}
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <p className="text-xs tracking-[0.18em] text-muted">
-                      {work.type}
-                    </p>
-                    <p className="mt-2 text-xl font-medium tracking-tight text-foreground">
-                      {work.title}
-                    </p>
-                    <p className="mt-3 text-xs text-muted">0{index + 1}</p>
-                  </div>
-                </div>
-              </li>
-            ))}
+            {previewWorks.map((work) => {
+              const accent = work.preview.tone ?? "rgba(142, 158, 148, 0.55)";
+              const fill = work.preview.tone ?? "rgba(142, 158, 148, 0.28)";
+
+              return (
+                <li key={work.slug} className="group">
+                  <Link
+                    href={`/portfolio/${work.slug}`}
+                    className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground"
+                  >
+                    <div
+                      className="relative aspect-[4/5] overflow-hidden transition-transform duration-700 ease-out group-hover:-translate-y-0.5"
+                      style={{ background: fill }}
+                    >
+                      <div
+                        className="absolute -right-8 -top-8 h-36 w-36 rounded-full blur-2xl transition-opacity duration-500 group-hover:opacity-100"
+                        style={{
+                          background: accent,
+                          opacity: 0.55,
+                        }}
+                      />
+                      <div
+                        className="absolute right-5 top-5 h-9 w-9 border transition-transform duration-500 group-hover:rotate-45"
+                        style={{ borderColor: accent }}
+                      />
+                      <div
+                        className="absolute left-5 top-5 h-2 w-2 rounded-full"
+                        style={{ background: accent }}
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 p-5">
+                        <p className="text-xs tracking-[0.18em] text-muted">
+                          {getCategoryLabel(work.category)}
+                        </p>
+                        <p className="mt-2 text-xl font-medium tracking-tight text-foreground">
+                          {work.title}
+                        </p>
+                        {work.location ? (
+                          <p className="mt-2 text-sm text-muted">{work.location}</p>
+                        ) : null}
+                      </div>
+                    </div>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </section>
