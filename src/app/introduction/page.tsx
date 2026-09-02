@@ -74,7 +74,7 @@ export default function IntroductionPage() {
           <h1 className="animate-fade-up-1 mt-5 max-w-3xl text-[clamp(2.4rem,6vw,4.25rem)] font-medium leading-[1.12] tracking-tight text-foreground">
             벽을 새로 그리고,
             <br />
-            공간을 다시 완성합니다
+            공간을 다시 완성합니다.
           </h1>
           <div className="animate-draw-line mt-6 h-px w-16 bg-foreground/80" />
           <p className="animate-fade-up-2 mt-6 max-w-xl text-pretty break-keep text-base leading-8 text-muted sm:text-lg">
