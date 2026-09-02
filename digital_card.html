@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>그리다, 공간 - 디지털 명함</title>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #f2efe9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            gap: 30px;
+        }
+
+        .card-container {
+            width: 100%;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .card-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #777;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .card {
+            width: 100%;
+            aspect-ratio: 9 / 5;
+            background-color: #fcfbfa;
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            position: relative;
+            overflow: hidden;
+            padding: 28px 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid #eae6df;
+        }
+
+        /* FRONT CARD */
+        .card-front {
+            align-items: center;
+            justify-content: center;
+        }
+
+        .front-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-symbol {
+            width: 64px;
+            height: 64px;
+            position: relative;
+        }
+
+        .front-text {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .brand-name {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1a1a1a;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-slogan {
+            font-size: 13px;
+            color: #93897d;
+            font-weight: 400;
+            letter-spacing: -0.2px;
+        }
+
+        /* BACK CARD */
+        .back-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            z-index: 2;
+        }
+
+        .back-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-logo-text {
+            font-size: 15px;
+            font-weight: 700;
+            color: #222;
+        }
+
+        .top-accent {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .top-dot {
+            width: 5px;
+            height: 5px;
+            background-color: #c4b5a3;
+            border-radius: 50%;
+        }
+
+        .top-line {
+            width: 32px;
+            height: 1.5px;
+            background-color: #d1c7bc;
+        }
+
+        .back-middle {
+            z-index: 2;
+            margin-top: 8px;
+        }
+
+        .user-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #444;
+            text-decoration: none;
+        }
+
+        .contact-icon {
+            width: 14px;
+            height: 14px;
+            opacity: 0.6;
+        }
+
+        .back-bottom {
+            z-index: 2;
+            text-align: center;
+            font-size: 11px;
+            color: #777;
+            letter-spacing: -0.2px;
+        }
+
+        /* Decorative Backgrounds */
+        .bg-boxes {
+            position: absolute;
+            right: 25px;
+            top: 45%;
+            transform: translateY(-50%);
+            z-index: 1;
+            display: flex;
+            gap: 8px;
+            align-items: flex-end;
+        }
+
+        .box-1 {
+            width: 24px;
+            height: 24px;
+            background-color: #e5dfd5;
+            opacity: 0.7;
+        }
+
+        .box-2 {
+            width: 42px;
+            height: 42px;
+            background-color: #ded6c9;
+            opacity: 0.8;
+        }
+
+        .wavy-line {
+            position: absolute;
+            bottom: 32px;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            z-index: 1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        <div>
+            <div class="card-label">FRONT (브랜드)</div>
+            <div class="card card-front">
+                <div class="front-content">
+                    <svg class="logo-symbol" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="35" cy="35" r="28" fill="#9AA897"/>
+                        <path d="M 35 45 A 25 25 0 0 1 85 45 L 85 95 L 35 95 Z" fill="#E2CFB9"/>
+                        <text x="22" y="82" font-family="'Pretendard', sans-serif" font-weight="900" font-size="78" fill="#111111">D</text>
+                    </svg>
+                    <div class="front-text">
+                        <div class="brand-name">그리다, 공간</div>
+                        <div class="brand-slogan">공간을 그리고, 벽을 완성하다</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="card-label">BACK (개인 정보)</div>
+            <div class="card">
+                <div class="back-top">
+                    <div class="back-logo">
+                        <svg width="22" height="22" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="35" cy="35" r="28" fill="#9AA897"/>
+                            <path d="M 35 45 A 25 25 0 0 1 85 45 L 85 95 L 35 95 Z" fill="#E2CFB9"/>
+                            <text x="22" y="82" font-family="'Pretendard', sans-serif" font-weight="900" font-size="78" fill="#111111">D</text>
+                        </svg>
+                        <span class="back-logo-text">그리다, 공간</span>
+                    </div>
+                    <div class="top-accent">
+                        <div class="top-dot"></div>
+                        <div class="top-line"></div>
+                    </div>
+                </div>
+
+                <div class="back-middle">
+                    <div class="user-name">최 병 우</div>
+                    <div class="contact-list">
+                        <a href="tel:010-4186-6088" class="contact-item">
+                            <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                            <span>H.P 010-4186-6088</span>
+                        </a>
+                        <a href="mailto:cbw60881@gmail.com" class="contact-item">
+                            <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                            <span>cbw60881@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+
+                <svg class="wavy-line" viewBox="0 0 400 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 10 Q 100 0, 200 10 T 400 10" stroke="#d5cecf" stroke-width="1.2" stroke-dasharray="3 3" fill="none"/>
+                    <path d="M0 15 Q 120 5, 240 15 T 400 10" stroke="#e0d6d7" stroke-width="1" fill="none"/>
+                </svg>
+
+                <div class="bg-boxes">
+                    <div class="box-1"></div>
+                    <div class="box-2"></div>
+                </div>
+
+                <div class="back-bottom">
+                    도배 시공 전문 | 그리다, 공간
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

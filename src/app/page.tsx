@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { HeroGeometry } from "@/components/hero-geometry";
 import { getCategoryLabel, getFeaturedProjects } from "@/lib/portfolio";
@@ -100,51 +101,47 @@ export default function HomePage() {
           </div>
 
           <ul className="mt-12 grid gap-4 md:grid-cols-3">
-            {previewWorks.map((work) => {
-              const accent = work.preview.tone ?? "rgba(142, 158, 148, 0.55)";
-              const fill = work.preview.tone ?? "rgba(142, 158, 148, 0.28)";
-
-              return (
-                <li key={work.slug} className="group">
-                  <Link
-                    href={`/portfolio/${work.slug}`}
-                    className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground"
-                  >
-                    <div
-                      className="relative aspect-[4/5] overflow-hidden transition-transform duration-700 ease-out group-hover:-translate-y-0.5"
-                      style={{ background: fill }}
-                    >
+            {previewWorks.map((work) => (
+              <li key={work.slug} className="group">
+                <Link
+                  href={`/portfolio/${work.slug}`}
+                  className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground"
+                >
+                  <div className="relative aspect-[4/5] overflow-hidden bg-soft transition-transform duration-700 ease-out group-hover:-translate-y-0.5">
+                    {work.preview.src ? (
+                      <Image
+                        src={work.preview.src}
+                        alt={work.preview.alt}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        priority
+                      />
+                    ) : (
                       <div
-                        className="absolute -right-8 -top-8 h-36 w-36 rounded-full blur-2xl transition-opacity duration-500 group-hover:opacity-100"
+                        className="absolute inset-0"
                         style={{
-                          background: accent,
-                          opacity: 0.55,
+                          background:
+                            work.preview.tone ?? "rgba(142, 158, 148, 0.28)",
                         }}
+                        aria-hidden
                       />
-                      <div
-                        className="absolute right-5 top-5 h-9 w-9 border transition-transform duration-500 group-hover:rotate-45"
-                        style={{ borderColor: accent }}
-                      />
-                      <div
-                        className="absolute left-5 top-5 h-2 w-2 rounded-full"
-                        style={{ background: accent }}
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 p-5">
-                        <p className="text-xs tracking-[0.18em] text-muted">
-                          {getCategoryLabel(work.category)}
-                        </p>
-                        <p className="mt-2 text-xl font-medium tracking-tight text-foreground">
-                          {work.title}
-                        </p>
-                        {work.location ? (
-                          <p className="mt-2 text-sm text-muted">{work.location}</p>
-                        ) : null}
-                      </div>
+                    )}
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-white via-white/90 to-transparent p-5 pt-16">
+                      <p className="text-xs tracking-[0.18em] text-muted">
+                        {getCategoryLabel(work.category)}
+                      </p>
+                      <p className="mt-2 text-xl font-medium tracking-tight text-foreground">
+                        {work.title}
+                      </p>
+                      {work.location ? (
+                        <p className="mt-2 text-sm text-muted">{work.location}</p>
+                      ) : null}
                     </div>
-                  </Link>
-                </li>
-              );
-            })}
+                  </div>
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </section>
