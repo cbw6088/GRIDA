@@ -57,6 +57,288 @@ export const portfolioCategories: PortfolioCategory[] = [
 
 export const portfolioProjects: PortfolioProject[] = [
   {
+    slug: "seocho-residential",
+    title: "서초구 주거공간",
+    category: "residential",
+    location: "서울 서초구",
+    preview: {
+      src: "/portfolio/서초구26-09-06/거실/시공후_거실1.JPG",
+      alt: "서초구 주거공간 거실 시공 후 내부",
+    },
+    sections: [
+      {
+        title: "거실",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/서초구26-09-06/거실/시공전_거실.JPG",
+                alt: "거실 시공 전 내부",
+              },
+              {
+                src: "/portfolio/서초구26-09-06/거실/시공전_거실2.JPG",
+                alt: "거실 시공 전 다른 각도",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/서초구26-09-06/거실/시공후_거실1.JPG",
+                alt: "거실 시공 후 내부",
+              },
+              {
+                src: "/portfolio/서초구26-09-06/거실/시공후_거실2.JPG",
+                alt: "거실 시공 후 주방과 연결된 공간",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "안방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/서초구26-09-06/안방/시공전_안방.JPG",
+                alt: "안방 시공 전 내부",
+              },
+              {
+                src: "/portfolio/서초구26-09-06/안방/시공전_안방2.JPG",
+                alt: "안방 시공 전 다른 각도",
+              },
+              {
+                src: "/portfolio/서초구26-09-06/안방/시공전_안방3.JPG",
+                alt: "안방 시공 전 벽면",
+              },
+              {
+                src: "/portfolio/서초구26-09-06/안방/시공전_안방4.JPG",
+                alt: "안방 시공 전 창가 쪽",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/서초구26-09-06/안방/시공후_안방1.JPG",
+                alt: "안방 시공 후 내부",
+              },
+              {
+                src: "/portfolio/서초구26-09-06/안방/시공후_안방2.JPG",
+                alt: "안방 시공 후 다른 각도",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "작은방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/서초구26-09-06/작은방/시공전_작은방1.JPG",
+                alt: "작은방 시공 전 내부",
+              },
+              {
+                src: "/portfolio/서초구26-09-06/작은방/시공전_작은방2.JPG",
+                alt: "작은방 시공 전 다른 각도",
+              },
+              {
+                src: "/portfolio/서초구26-09-06/작은방/시공전_작은방3.JPG",
+                alt: "작은방 시공 전 벽면",
+              },
+              {
+                src: "/portfolio/서초구26-09-06/작은방/시공전_작은방4.JPG",
+                alt: "작은방 시공 전 창가 쪽",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/서초구26-09-06/작은방/시공후_작은방1.JPG",
+                alt: "작은방 시공 후 내부",
+              },
+              {
+                src: "/portfolio/서초구26-09-06/작은방/시공후_작은방2.JPG",
+                alt: "작은방 시공 후 다른 각도",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "몰딩",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/서초구26-09-06/몰딩/시공전_몰딩1.JPG",
+                alt: "몰딩 시공 전",
+              },
+              {
+                src: "/portfolio/서초구26-09-06/몰딩/시공전_몰딩2.JPG",
+                alt: "몰딩 시공 전 다른 각도",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/서초구26-09-06/몰딩/시공후_몰딩1.JPG",
+                alt: "몰딩 시공 후",
+              },
+              {
+                src: "/portfolio/서초구26-09-06/몰딩/시공후_몰딩2.JPG",
+                alt: "몰딩 시공 후 다른 각도",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    featured: true,
+  },
+  {
+    slug: "songpa-residential",
+    title: "송파구 주거공간",
+    category: "residential",
+    location: "서울 송파구",
+    preview: {
+      src: "/portfolio/송파구26-09-05,07/거실/시공후_거실1.JPG",
+      alt: "송파구 주거공간 거실 시공 후 내부",
+    },
+    sections: [
+      {
+        title: "거실",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/송파구26-09-05,07/거실/시공전_거실1.JPG",
+                alt: "거실 시공 전 내부",
+              },
+              {
+                src: "/portfolio/송파구26-09-05,07/거실/시공전_거실2.JPG",
+                alt: "거실 시공 전 다른 각도",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/송파구26-09-05,07/거실/시공후_거실1.JPG",
+                alt: "거실 시공 후 내부",
+              },
+              {
+                src: "/portfolio/송파구26-09-05,07/거실/시공후_거실2.JPG",
+                alt: "거실 시공 후 다른 각도",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "안방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/송파구26-09-05,07/안방/시공전_안방1.JPG",
+                alt: "안방 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/송파구26-09-05,07/안방/시공후_안방1.JPG",
+                alt: "안방 시공 후 내부",
+              },
+              {
+                src: "/portfolio/송파구26-09-05,07/안방/시공후_안방2.JPG",
+                alt: "안방 시공 후 다른 각도",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "중간방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/송파구26-09-05,07/중간방/시공전_중간방1.JPG",
+                alt: "중간방 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/송파구26-09-05,07/중간방/시공후_중간방1.JPG",
+                alt: "중간방 시공 후 내부",
+              },
+              {
+                src: "/portfolio/송파구26-09-05,07/중간방/시공후_중간방2.JPG",
+                alt: "중간방 시공 후 다른 각도",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "작은방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/송파구26-09-05,07/작은방/시공전_작은방1.JPG",
+                alt: "작은방 시공 전 내부",
+              },
+              {
+                src: "/portfolio/송파구26-09-05,07/작은방/시공전_작은방2.JPG",
+                alt: "작은방 시공 전 다른 각도",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/송파구26-09-05,07/작은방/시공후_작은방3.JPG",
+                alt: "작은방 시공 후 내부",
+              },
+              {
+                src: "/portfolio/송파구26-09-05,07/작은방/시공후_작은방4.JPG",
+                alt: "작은방 시공 후 다른 각도",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    featured: true,
+  },
+  {
     slug: "yeoksam-commercial",
     title: "역삼동 상업공간",
     category: "commercial",

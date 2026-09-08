@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { HeroGeometry } from "@/components/hero-geometry";
+import { HomeBanner } from "@/components/home-banner";
 import { getCategoryLabel, getFeaturedProjects } from "@/lib/portfolio";
 import { siteConfig } from "@/lib/site";
 
@@ -9,36 +9,8 @@ const previewWorks = getFeaturedProjects(3);
 export default function HomePage() {
   return (
     <main>
-      <section className="relative isolate min-h-[100dvh] overflow-hidden bg-white">
-        <HeroGeometry />
-
-        <div className="relative mx-auto flex min-h-[100dvh] w-full max-w-6xl flex-col justify-center px-5 pb-20 pt-44 sm:px-8">
-          <p className="animate-fade-up text-sm tracking-[0.22em] text-muted">
-            도배 시공
-          </p>
-          <h1 className="animate-fade-up-1 mt-5 text-[clamp(2.6rem,7vw,5rem)] font-medium leading-[1.08] tracking-tight text-foreground">
-            {siteConfig.name}
-          </h1>
-          <div className="animate-draw-line mt-6 h-px w-16 bg-foreground/80" />
-          <p className="animate-fade-up-2 mt-6 max-w-md text-pretty break-keep text-base leading-relaxed text-muted sm:text-lg">
-            공간을 그리고, 벽을 완성하다.
-          </p>
-          <div className="animate-fade-up-3 mt-10 flex flex-wrap gap-3">
-            <Link
-              href="/portfolio"
-              className="inline-flex h-11 items-center bg-foreground px-5 text-sm text-white transition-all duration-300 hover:-translate-y-0.5 hover:opacity-85"
-            >
-              시공 사례 보기
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex h-11 items-center border border-line bg-white/60 px-5 text-sm text-foreground backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-foreground/40"
-            >
-              상담 문의
-            </Link>
-          </div>
-        </div>
-      </section>
+      <h1 className="sr-only">{siteConfig.name}</h1>
+      <HomeBanner />
 
       <section className="relative overflow-hidden border-t border-line px-5 py-24 sm:px-8 md:py-28">
         <div

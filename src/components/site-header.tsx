@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { siteConfig } from "@/lib/site";
 
 function isActive(pathname: string, href: string) {
@@ -13,23 +13,9 @@ function isActive(pathname: string, href: string) {
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-40 border-b border-[#ececec] px-5 transition-[background-color,backdrop-filter] duration-500 sm:px-8 ${
-        scrolled || open
-          ? "bg-white/80 backdrop-blur-md"
-          : "bg-transparent"
-      }`}
-    >
+    <header className="fixed inset-x-0 top-0 z-40 border-b border-[#ececec] bg-white px-5 sm:px-8">
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between sm:h-[4.5rem]">
         <Link
           href="/"
