@@ -12,14 +12,27 @@ export function SiteFooter() {
             className="inline-flex items-center gap-2.5 text-foreground transition-opacity hover:opacity-70"
           >
             <Image
-              src="/brand/logo-d-mark.png"
+              src="/brand/logo.png"
               alt=""
-              width={36}
-              height={36}
-              className="h-9 w-9 object-cover"
+              width={72}
+              height={72}
+              className="h-9 w-9 object-contain"
             />
-            <span className="text-lg font-medium tracking-tight">
-              {siteConfig.name}
+            <span className="flex flex-col justify-center gap-0.5">
+              <Image
+                src="/brand/wordmark-ko.png"
+                alt="그리다, 공간"
+                width={168}
+                height={36}
+                className="h-[18px] w-auto"
+              />
+              <Image
+                src="/brand/wordmark-en.png"
+                alt="Wallpapering & Space Design"
+                width={144}
+                height={12}
+                className="h-[6px] w-auto"
+              />
             </span>
           </Link>
           <p className="mt-2 text-sm text-muted">{siteConfig.description}</p>

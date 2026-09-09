@@ -23,15 +23,29 @@ export function SiteHeader() {
           onClick={() => setOpen(false)}
         >
           <Image
-            src="/brand/logo-d-mark.png"
+            src="/brand/logo.png"
             alt=""
-            width={40}
-            height={40}
+            width={80}
+            height={80}
             className="h-10 w-10 object-contain"
             priority
           />
-          <span className="text-lg font-medium tracking-tight sm:text-xl">
-            {siteConfig.name}
+          <span className="flex flex-col justify-center gap-0.5">
+            <Image
+              src="/brand/wordmark-ko.png"
+              alt="그리다, 공간"
+              width={187}
+              height={40}
+              className="h-5 w-auto sm:h-[22px]"
+              priority
+            />
+            <Image
+              src="/brand/wordmark-en.png"
+              alt="Wallpapering & Space Design"
+              width={168}
+              height={14}
+              className="h-[7px] w-auto"
+            />
           </span>
         </Link>
 
