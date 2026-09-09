@@ -125,7 +125,7 @@ export function HomeBanner() {
       onPointerCancel={endDrag}
       onClickCapture={onClickCapture}
     >
-      <div className="relative mt-16 min-h-[28rem] sm:mt-[4.5rem] sm:min-h-[32rem] lg:min-h-[38rem]">
+      <div className="relative mt-[4.5rem] min-h-[28rem] sm:mt-20 sm:min-h-[32rem] lg:min-h-[38rem]">
         {homeBanners.map((banner, bannerIndex) => {
           const active = bannerIndex === index;
 
@@ -161,20 +161,28 @@ export function HomeBanner() {
                 aria-hidden
                 style={{
                   background:
-                    "linear-gradient(to right, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.16) 36%, rgba(255,255,255,0) 58%)",
+                    "linear-gradient(to right, rgba(255,255,255,0.62) 0%, rgba(255,255,255,0.32) 34%, rgba(255,255,255,0.08) 54%, rgba(255,255,255,0) 68%)",
                 }}
               />
 
               <div className="relative mx-auto flex h-full min-h-[28rem] w-full max-w-6xl flex-col justify-center px-5 pb-20 pt-12 sm:min-h-[32rem] sm:px-8 sm:pt-16 lg:min-h-[38rem]">
                 <div className="relative max-w-lg">
-                  <p className="text-sm tracking-[0.22em] text-foreground">
+                  <div
+                    className="pointer-events-none absolute -inset-x-5 -inset-y-8 -z-10 sm:-inset-x-8 sm:-inset-y-10"
+                    aria-hidden
+                    style={{
+                      background:
+                        "radial-gradient(ellipse 110% 90% at 18% 46%, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.64) 38%, rgba(255,255,255,0) 72%)",
+                    }}
+                  />
+                  <p className="text-sm tracking-[0.22em] text-foreground [text-shadow:0_0_18px_rgba(255,255,255,0.9)]">
                     {banner.kicker}
                   </p>
-                  <h2 className="mt-5 text-[clamp(2.1rem,5.4vw,4.25rem)] font-medium leading-[1.12] tracking-tight text-foreground">
+                  <h2 className="mt-5 text-[clamp(2.1rem,5.4vw,4.25rem)] font-medium leading-[1.12] tracking-tight text-foreground [text-shadow:0_0_28px_rgba(255,255,255,0.95)]">
                     {banner.title}
                   </h2>
                   <div className="mt-6 h-px w-16 bg-foreground" />
-                  <p className="mt-6 max-w-md text-pretty break-keep text-base leading-relaxed text-foreground sm:text-lg">
+                  <p className="mt-6 max-w-md text-pretty break-keep text-base leading-relaxed text-foreground sm:text-lg [text-shadow:0_0_18px_rgba(255,255,255,0.9)]">
                     {banner.description}
                   </p>
                   <div className="mt-10">

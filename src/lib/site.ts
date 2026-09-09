@@ -3,6 +3,7 @@ export const siteConfig = {
   nameEn: "Grida, Space",
   url: "https://grida-space.com",
   description: "공간을 그리고, 벽을 완성하다.",
+  slogan: "공간을 그리고, 벽을 완성하다",
   ogImage: "/brand/og.jpg",
   contact: {
     phoneDisplay: "010 4186 6088",

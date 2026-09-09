@@ -16,7 +16,7 @@ export function SiteHeader() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-40 border-b border-[#ececec] bg-white px-5 sm:px-8">
-      <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between sm:h-[4.5rem]">
+      <div className="mx-auto flex h-[4.5rem] w-full max-w-6xl items-center justify-between sm:h-20">
         <Link
           href="/"
           className="flex items-center gap-2.5 text-foreground transition-opacity hover:opacity-70"
@@ -30,22 +30,23 @@ export function SiteHeader() {
             className="h-10 w-10 object-contain"
             priority
           />
-          <span className="flex flex-col justify-center gap-0.5">
-            <Image
-              src="/brand/wordmark-ko.png"
-              alt="그리다, 공간"
-              width={187}
-              height={40}
-              className="h-5 w-auto sm:h-[22px]"
-              priority
-            />
-            <Image
-              src="/brand/wordmark-en.png"
-              alt="Wallpapering & Space Design"
-              width={168}
-              height={14}
-              className="h-[7px] w-auto"
-            />
+          <span className="flex flex-col items-start justify-center gap-1">
+            <span
+              className="relative block h-6 shrink-0 sm:h-7"
+              style={{ aspectRatio: "807 / 173" }}
+            >
+              <Image
+                src="/brand/wordmark-ko.png"
+                alt="그리다, 공간"
+                fill
+                sizes="150px"
+                className="object-contain object-left"
+                priority
+              />
+            </span>
+            <span className="whitespace-nowrap text-[10px] font-light leading-none tracking-[0.02em] text-muted sm:text-[11px]">
+              {siteConfig.slogan}
+            </span>
           </span>
         </Link>
 
