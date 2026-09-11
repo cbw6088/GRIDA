@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import { OptimizedImage } from "@/components/optimized-image";
 import { useMemo, useState } from "react";
 import {
   getCategoryLabel,
@@ -13,7 +13,13 @@ import {
 
 type FilterId = "all" | PortfolioCategoryId;
 
-function PortfolioCard({ project }: { project: PortfolioProject }) {
+function PortfolioCard({
+  project,
+  priority = false,
+}: {
+  project: PortfolioProject;
+  priority?: boolean;
+}) {
   const categoryLabel = getCategoryLabel(project.category);
 
   return (
@@ -24,10 +30,11 @@ function PortfolioCard({ project }: { project: PortfolioProject }) {
       >
         <div className="relative aspect-[4/5] overflow-hidden bg-soft">
           {project.preview.src ? (
-            <Image
+            <OptimizedImage
               src={project.preview.src}
               alt={project.preview.alt}
               fill
+              priority={priority}
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
@@ -94,8 +101,12 @@ export function PortfolioGrid() {
 
       {filteredProjects.length > 0 ? (
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredProjects.map((project) => (
-            <PortfolioCard key={project.slug} project={project} />
+          {filteredProjects.map((project, index) => (
+            <PortfolioCard
+              key={project.slug}
+              project={project}
+              priority={index === 0}
+            />
           ))}
         </ul>
       ) : (

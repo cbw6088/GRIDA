@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { OptimizedImage } from "@/components/optimized-image";
 import Link from "next/link";
 import { HomeBanner } from "@/components/home-banner";
 import { getCategoryLabel, getFeaturedProjects } from "@/lib/portfolio";
@@ -81,13 +81,12 @@ export default function HomePage() {
                 >
                   <div className="relative aspect-[4/5] overflow-hidden bg-soft transition-transform duration-700 ease-out group-hover:-translate-y-0.5">
                     {work.preview.src ? (
-                      <Image
+                      <OptimizedImage
                         src={work.preview.src}
                         alt={work.preview.alt}
                         fill
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, 33vw"
-                        priority
                       />
                     ) : (
                       <div

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { OptimizedImage } from "@/components/optimized-image";
 import type { PortfolioImage as PortfolioImageType } from "@/lib/portfolio";
 
 type PortfolioImageProps = {
@@ -16,7 +16,7 @@ export function PortfolioImage({
 }: PortfolioImageProps) {
   if (image.src) {
     return (
-      <Image
+      <OptimizedImage
         src={image.src}
         alt={image.alt}
         fill

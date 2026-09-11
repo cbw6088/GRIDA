@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { OptimizedImage } from "@/components/optimized-image";
 import Link from "next/link";
 import { wallpaperExtras, wallpaperGuides } from "@/lib/wallpapers";
 
@@ -65,7 +65,7 @@ export default function WallpaperPage() {
                   className="relative min-h-[320px] overflow-hidden md:h-full md:min-h-[560px]"
                   style={{ background: item.tone }}
                 >
-                  <Image
+                  <OptimizedImage
                     src={item.image}
                     alt={item.imageAlt}
                     fill

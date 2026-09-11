@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { OptimizedImage } from "@/components/optimized-image";
 import Link from "next/link";
 import { type MouseEvent, type PointerEvent, useCallback, useEffect, useRef, useState } from "react";
 import { homeBanners } from "@/lib/banners";
@@ -139,7 +139,7 @@ export function HomeBanner() {
               inert={!active}
             >
               <div className="pointer-events-none absolute inset-0" aria-hidden>
-                <Image
+                <OptimizedImage
                   src={banner.image}
                   alt={banner.imageAlt}
                   fill

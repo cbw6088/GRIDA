@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { OptimizedImage } from "@/components/optimized-image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -22,7 +22,7 @@ export function SiteHeader() {
           className="flex items-center gap-2.5 text-foreground transition-opacity hover:opacity-70"
           onClick={() => setOpen(false)}
         >
-          <Image
+          <OptimizedImage
             src="/brand/logo.png"
             alt=""
             width={80}
@@ -35,7 +35,7 @@ export function SiteHeader() {
               className="relative block h-6 shrink-0 sm:h-7"
               style={{ aspectRatio: "807 / 173" }}
             >
-              <Image
+              <OptimizedImage
                 src="/brand/wordmark-ko.png"
                 alt="그리다, 공간"
                 fill

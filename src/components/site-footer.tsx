@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { OptimizedImage } from "@/components/optimized-image";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 
@@ -11,7 +11,7 @@ export function SiteFooter() {
             href="/"
             className="inline-flex items-center gap-2.5 text-foreground transition-opacity hover:opacity-70"
           >
-            <Image
+            <OptimizedImage
               src="/brand/logo.png"
               alt=""
               width={72}
@@ -19,14 +19,14 @@ export function SiteFooter() {
               className="h-9 w-9 object-contain"
             />
             <span className="flex flex-col justify-center gap-0.5">
-              <Image
+              <OptimizedImage
                 src="/brand/wordmark-ko.png"
                 alt="그리다, 공간"
                 width={168}
                 height={36}
                 className="h-[18px] w-auto"
               />
-              <Image
+              <OptimizedImage
                 src="/brand/wordmark-en.png"
                 alt="Wallpapering & Space Design"
                 width={144}
