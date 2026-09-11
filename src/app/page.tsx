@@ -1,7 +1,11 @@
 import { OptimizedImage } from "@/components/optimized-image";
 import Link from "next/link";
 import { HomeBanner } from "@/components/home-banner";
-import { getCategoryLabel, getFeaturedProjects } from "@/lib/portfolio";
+import {
+  formatProjectFacts,
+  getCategoryLabel,
+  getFeaturedProjects,
+} from "@/lib/portfolio";
 import { siteConfig } from "@/lib/site";
 
 const previewWorks = getFeaturedProjects(3);
@@ -73,46 +77,50 @@ export default function HomePage() {
           </div>
 
           <ul className="mt-12 grid gap-4 md:grid-cols-3">
-            {previewWorks.map((work) => (
-              <li key={work.slug} className="group">
-                <Link
-                  href={`/portfolio/${work.slug}`}
-                  className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground"
-                >
-                  <div className="relative aspect-[4/5] overflow-hidden bg-soft transition-transform duration-700 ease-out group-hover:-translate-y-0.5">
-                    {work.preview.src ? (
-                      <OptimizedImage
-                        src={work.preview.src}
-                        alt={work.preview.alt}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                      />
-                    ) : (
-                      <div
-                        className="absolute inset-0"
-                        style={{
-                          background:
-                            work.preview.tone ?? "rgba(142, 158, 148, 0.28)",
-                        }}
-                        aria-hidden
-                      />
-                    )}
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-white via-white/90 to-transparent p-5 pt-16">
-                      <p className="text-xs tracking-[0.18em] text-muted">
-                        {getCategoryLabel(work.category)}
-                      </p>
-                      <p className="mt-2 text-xl font-medium tracking-tight text-foreground">
-                        {work.title}
-                      </p>
-                      {work.location ? (
-                        <p className="mt-2 text-sm text-muted">{work.location}</p>
-                      ) : null}
+            {previewWorks.map((work) => {
+              const facts = formatProjectFacts(work);
+
+              return (
+                <li key={work.slug} className="group">
+                  <Link
+                    href={`/portfolio/${work.slug}`}
+                    className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground"
+                  >
+                    <div className="relative aspect-[4/5] overflow-hidden bg-soft transition-transform duration-700 ease-out group-hover:-translate-y-0.5">
+                      {work.preview.src ? (
+                        <OptimizedImage
+                          src={work.preview.src}
+                          alt={work.preview.alt}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                        />
+                      ) : (
+                        <div
+                          className="absolute inset-0"
+                          style={{
+                            background:
+                              work.preview.tone ?? "rgba(142, 158, 148, 0.28)",
+                          }}
+                          aria-hidden
+                        />
+                      )}
+                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-white via-white/90 to-transparent p-5 pt-16">
+                        <p className="text-xs tracking-[0.18em] text-muted">
+                          {getCategoryLabel(work.category)}
+                        </p>
+                        <p className="mt-2 text-xl font-medium tracking-tight text-foreground">
+                          {work.title}
+                        </p>
+                        {facts ? (
+                          <p className="mt-2 text-sm text-muted">{facts}</p>
+                        ) : null}
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              </li>
-            ))}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </section>

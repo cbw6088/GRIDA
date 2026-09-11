@@ -35,6 +35,8 @@ export type PortfolioProject = {
   title: string;
   category: PortfolioCategoryId;
   location?: string;
+  /** 시공에 사용한 도배지 */
+  wallpaper?: string;
   summary?: string;
   scope?: string[];
   preview: PortfolioImage;
@@ -61,6 +63,7 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "서초구 주거공간",
     category: "residential",
     location: "서울 서초구",
+    wallpaper: "소폭합지",
     preview: {
       src: "/portfolio/서초구26-09-06/거실/시공후_거실1.JPG",
       alt: "서초구 주거공간 거실 시공 후 내부",
@@ -214,6 +217,7 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "송파구 주거공간",
     category: "residential",
     location: "서울 송파구",
+    wallpaper: "광폭합지",
     preview: {
       src: "/portfolio/송파구26-09-05,07/거실/시공후_거실1.JPG",
       alt: "송파구 주거공간 거실 시공 후 내부",
@@ -343,6 +347,7 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "역삼동 상업공간",
     category: "commercial",
     location: "서울 강남구 역삼동",
+    wallpaper: "광폭합지",
     preview: {
       src: "/portfolio/역삼동/3층/시공후3.JPG",
       alt: "역삼동 상업공간 3층 아치형 창호가 있는 시공 후 내부",
@@ -558,4 +563,15 @@ export function getProjectBySlug(slug: string) {
 
 export function getFeaturedProjects(limit = 3) {
   return portfolioProjects.filter((project) => project.featured).slice(0, limit);
+}
+
+export function formatProjectFacts(
+  project: Pick<PortfolioProject, "location" | "wallpaper">,
+) {
+  return [project.location, project.wallpaper].filter(Boolean).join(" · ");
+}
+
+export function getWallpaperGuideHref(wallpaper?: string) {
+  if (wallpaper?.includes("합지")) return "/wallpaper#hapji";
+  return "/wallpaper";
 }

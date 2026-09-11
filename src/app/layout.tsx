@@ -40,6 +40,12 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [siteConfig.ogImage],
   },
+  verification: {
+    other: {
+      "naver-site-verification":
+        "511506ac9653331b9bafc0beb80916addfeead0b",
+    },
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

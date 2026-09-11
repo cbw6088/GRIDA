@@ -4,6 +4,7 @@ import Link from "next/link";
 import { OptimizedImage } from "@/components/optimized-image";
 import { useMemo, useState } from "react";
 import {
+  formatProjectFacts,
   getCategoryLabel,
   portfolioCategories,
   portfolioProjects,
@@ -21,6 +22,7 @@ function PortfolioCard({
   priority?: boolean;
 }) {
   const categoryLabel = getCategoryLabel(project.category);
+  const facts = formatProjectFacts(project);
 
   return (
     <li className="group">
@@ -51,8 +53,8 @@ function PortfolioCard({
             <p className="mt-2 text-xl font-medium tracking-tight text-foreground">
               {project.title}
             </p>
-            {project.location ? (
-              <p className="mt-2 text-sm text-muted">{project.location}</p>
+            {facts ? (
+              <p className="mt-2 text-sm text-muted">{facts}</p>
             ) : null}
           </div>
         </div>

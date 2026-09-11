@@ -18,24 +18,19 @@ export function SiteFooter() {
               height={72}
               className="h-9 w-9 object-contain"
             />
-            <span className="flex flex-col justify-center gap-0.5">
+            <span className="flex flex-col items-start justify-center gap-[0.26em] text-[18px]">
               <OptimizedImage
                 src="/brand/wordmark-ko.png"
                 alt="그리다, 공간"
                 width={168}
                 height={36}
-                className="h-[18px] w-auto"
+                className="h-[1em] w-auto"
               />
-              <OptimizedImage
-                src="/brand/wordmark-en.png"
-                alt="Wallpapering & Space Design"
-                width={144}
-                height={12}
-                className="h-[6px] w-auto"
-              />
+              <span className="whitespace-nowrap text-[0.4em] font-light leading-none tracking-[0.02em] text-muted">
+                {siteConfig.slogan}
+              </span>
             </span>
           </Link>
-          <p className="mt-2 text-sm text-muted">{siteConfig.description}</p>
         </div>
         <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted" aria-label="푸터 메뉴">
           {siteConfig.nav.map((item) => (

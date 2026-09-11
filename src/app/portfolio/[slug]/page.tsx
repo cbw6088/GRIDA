@@ -5,6 +5,7 @@ import { PortfolioImage } from "@/components/portfolio-image";
 import {
   getCategoryLabel,
   getProjectBySlug,
+  getWallpaperGuideHref,
   portfolioProjects,
 } from "@/lib/portfolio";
 
@@ -28,6 +29,13 @@ export async function generateMetadata({
 
   return {
     title: project.title,
+    description: [
+      project.location,
+      project.wallpaper,
+      getCategoryLabel(project.category),
+    ]
+      .filter(Boolean)
+      .join(" · "),
   };
 }
 
@@ -59,6 +67,17 @@ export default async function PortfolioDetailPage({
         </h1>
         {project.location ? (
           <p className="mt-3 text-base text-muted">{project.location}</p>
+        ) : null}
+        {project.wallpaper ? (
+          <p className="mt-3 text-base">
+            <span className="text-muted">도배지</span>
+            <Link
+              href={getWallpaperGuideHref(project.wallpaper)}
+              className="ml-3 text-foreground transition-opacity hover:opacity-60"
+            >
+              {project.wallpaper}
+            </Link>
+          </p>
         ) : null}
         <div className="mt-6 h-px w-12 bg-foreground" />
 
