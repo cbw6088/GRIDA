@@ -8,8 +8,10 @@ import "./globals.css";
 
 const sans = IBM_Plex_Sans_KR({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500"],
   variable: "--font-body",
+  display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {

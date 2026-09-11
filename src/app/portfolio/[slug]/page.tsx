@@ -54,8 +54,8 @@ export async function generateMetadata({
       "도배 시공 사례",
       "인테리어 시공",
       project.wallpaper,
-      project.location ? `${project.location} 도배` : "",
-    ].filter(Boolean),
+      project.location ? `${project.location} 도배` : undefined,
+    ].filter((keyword): keyword is string => Boolean(keyword)),
     path: `/portfolio/${project.slug}`,
   });
 }
