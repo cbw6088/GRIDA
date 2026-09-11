@@ -8,6 +8,7 @@ import {
   getWallpaperGuideHref,
   portfolioProjects,
 } from "@/lib/portfolio";
+import { pageMetadata } from "@/lib/seo";
 
 type PortfolioDetailPageProps = {
   params: Promise<{ slug: string }>;
@@ -24,19 +25,39 @@ export async function generateMetadata({
   const project = getProjectBySlug(slug);
 
   if (!project) {
-    return { title: "포트폴리오" };
+    return pageMetadata({
+      title: "도배 시공 포트폴리오",
+      description:
+        "서울·경기 주거·상업 공간 도배 시공 사례를 확인하세요.",
+      keywords: ["도배 포트폴리오", "도배 시공 사례"],
+      path: "/portfolio",
+    });
   }
 
-  return {
-    title: project.title,
+  const categoryLabel = getCategoryLabel(project.category);
+  const spaceKeyword =
+    project.category === "commercial" ? "상업 도배" : "주거 도배";
+
+  return pageMetadata({
+    title: `${project.title} 도배 시공`,
     description: [
       project.location,
+      categoryLabel,
       project.wallpaper,
-      getCategoryLabel(project.category),
+      "도배 시공 사례입니다.",
+      "시공 전후 사진으로 인테리어 마감을 확인하세요.",
     ]
       .filter(Boolean)
-      .join(" · "),
-  };
+      .join(" "),
+    keywords: [
+      spaceKeyword,
+      "도배 시공 사례",
+      "인테리어 시공",
+      project.wallpaper,
+      project.location ? `${project.location} 도배` : "",
+    ].filter(Boolean),
+    path: `/portfolio/${project.slug}`,
+  });
 }
 
 export default async function PortfolioDetailPage({

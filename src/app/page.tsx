@@ -13,7 +13,7 @@ const previewWorks = getFeaturedProjects(3);
 export default function HomePage() {
   return (
     <main>
-      <h1 className="sr-only">{siteConfig.name}</h1>
+      <h1 className="sr-only">{siteConfig.titleDefault}</h1>
       <HomeBanner />
 
       <section className="relative overflow-hidden border-t border-line px-5 py-24 sm:px-8 md:py-28">

@@ -1,11 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "소개",
-  description: "그리다, 공간 — 도배 시공 소개",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "도배 시공 소개",
+  description:
+    "서울·경기 주거·상업 공간 도배 시공 브랜드 그리다 공간입니다. 바탕 작업부터 단정한 인테리어 마감까지, 도배 시공 방식과 가치를 소개합니다.",
+  keywords: [
+    "도배 업체",
+    "도배 소개",
+    "인테리어 시공",
+    "주거 인테리어",
+    "상업 인테리어",
+  ],
+  path: "/introduction",
+});
 
 const values = [
   {

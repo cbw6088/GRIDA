@@ -1,11 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "연락하기",
-  description: "그리다, 공간 — 상담 및 문의",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "도배 시공 상담",
+  description:
+    "서울·경기 도배 시공 상담 및 견적 문의. 주거·상업 공간 도배, 합지·실크 선택까지 그리다 공간에 편하게 남겨 주세요.",
+  keywords: [
+    "도배 견적",
+    "도배 상담",
+    "도배 문의",
+    "인테리어 상담",
+    "서울 도배 견적",
+    "경기 도배 견적",
+  ],
+  path: "/contact",
+});
 
 const prepareItems = [
   "시공하려는 공간 (거실, 방, 상가 등)",

@@ -2,7 +2,9 @@ export const siteConfig = {
   name: "그리다, 공간",
   nameEn: "Grida, Space",
   url: "https://grida-space.com",
-  description: "공간을 그리고, 벽을 완성하다.",
+  titleDefault: "그리다, 공간 | 서울 경기 도배 시공",
+  description:
+    "서울·경기 아파트, 주택, 상가 도배 시공. 주거·상업 인테리어에 맞는 합지·실크 상담부터 단정한 마감까지 그리다 공간이 완성합니다.",
   slogan: "공간을 그리고, 벽을 완성하다",
   ogImage: "/brand/og.jpg",
   contact: {

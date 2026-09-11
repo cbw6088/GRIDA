@@ -1,10 +1,23 @@
 import type { Metadata } from "next";
 import { PortfolioGrid } from "@/components/portfolio-grid";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "포트폴리오",
-  description: "그리다, 공간 — 시공 포트폴리오",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "도배 시공 포트폴리오",
+  description:
+    "서울 서초·송파 주거 공간과 역삼동 상업 공간 도배 시공 사례입니다. 시공 전후 사진으로 인테리어 마감과 도배 시공 결과를 확인하세요.",
+  keywords: [
+    "도배 포트폴리오",
+    "도배 시공 사례",
+    "주거 도배 시공",
+    "상업 도배 시공",
+    "인테리어 시공 사례",
+    "서초 도배",
+    "송파 도배",
+    "역삼 도배",
+  ],
+  path: "/portfolio",
+});
 
 export default function PortfolioPage() {
   return (

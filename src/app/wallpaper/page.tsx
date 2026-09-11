@@ -1,13 +1,25 @@
 import type { Metadata } from "next";
 import { OptimizedImage } from "@/components/optimized-image";
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 import { wallpaperExtras, wallpaperGuides } from "@/lib/wallpapers";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "도배지 안내",
   description:
-    "합지, 실크, 천연·한지, 뮤럴 등 자주 쓰는 도배지 종류를 고객 기준으로 안내합니다.",
-};
+    "합지, 실크, 한지, 뮤럴 등 도배지 종류를 안내합니다. 주거·상업 공간과 예산에 맞는 벽지 선택, 광폭합지와 소폭합지 차이까지 확인하세요.",
+  keywords: [
+    "도배지",
+    "합지 벽지",
+    "실크 벽지",
+    "광폭합지",
+    "소폭합지",
+    "한지 벽지",
+    "뮤럴 벽지",
+    "벽지 종류",
+  ],
+  path: "/wallpaper",
+});
 
 export default function WallpaperPage() {
   return (
