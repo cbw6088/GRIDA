@@ -63,12 +63,23 @@ try {
   await page.evaluate(() => document.fonts.ready);
   await page.pdf({
     path: outPath,
-    width: "90mm",
-    height: "50mm",
+    width: `${(92 / 25.4).toFixed(6)}in`,
+    height: `${(52 / 25.4).toFixed(6)}in`,
     printBackground: true,
-    preferCSSPageSize: true,
+    preferCSSPageSize: false,
     margin: { top: 0, right: 0, bottom: 0, left: 0 },
   });
+
+  const { PDFDocument } = await import("pdf-lib");
+  const targetW = (92 / 25.4) * 72;
+  const targetH = (52 / 25.4) * 72;
+  const pdf = await PDFDocument.load(fs.readFileSync(outPath));
+  for (const pdfPage of pdf.getPages()) {
+    const { width, height } = pdfPage.getSize();
+    pdfPage.setSize(targetW, targetH);
+    pdfPage.scaleContent(targetW / width, targetH / height);
+  }
+  fs.writeFileSync(outPath, await pdf.save());
   console.log(`wrote ${pathToFileURL(outPath)}`);
 } finally {
   await browser.close();

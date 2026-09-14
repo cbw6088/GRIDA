@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ValueSheets } from "@/components/value-sheets";
 import { pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
@@ -181,39 +182,7 @@ export default function IntroductionPage() {
             시공에서 지키는 것
           </h2>
 
-          <ul className="mt-12 grid gap-4 md:grid-cols-3">
-            {values.map((item, index) => (
-              <li key={item.title} className="group">
-                <article
-                  className="relative flex h-full min-h-[280px] flex-col justify-between overflow-hidden border border-line p-6 transition-transform duration-700 ease-out group-hover:-translate-y-0.5"
-                  style={{ background: item.tone }}
-                >
-                  <div className="relative flex items-start justify-between gap-4">
-                    <p
-                      className="text-xs tracking-[0.18em]"
-                      style={{ color: item.accent }}
-                    >
-                      0{index + 1}
-                    </p>
-                    <span
-                      className="border bg-white/70 px-2 py-1 text-[11px] tracking-[0.14em] text-foreground"
-                      style={{ borderColor: item.accent }}
-                    >
-                      {item.label}
-                    </span>
-                  </div>
-                  <div className="relative mt-16">
-                    <h3 className="text-xl font-medium tracking-tight text-foreground">
-                      {item.title}
-                    </h3>
-                    <p className="mt-3 text-sm leading-7 text-pretty break-keep text-muted">
-                      {item.text}
-                    </p>
-                  </div>
-                </article>
-              </li>
-            ))}
-          </ul>
+          <ValueSheets values={values} />
         </div>
       </section>
 
