@@ -142,8 +142,7 @@ export default function ContactPage() {
             <p className="text-sm tracking-[0.22em] text-muted">안내</p>
             <h2 className="mt-4 text-3xl font-medium tracking-tight text-foreground">
               문의 전에 알려주시면
-              <br />
-              좋아요
+              <br className="md:hidden" /> 좋아요
             </h2>
             <p className="mt-4 text-pretty break-keep leading-7 text-muted">
               아래 내용이 있으면 상담이 더 빨라집니다. 다 모르셔도 괜찮으니,

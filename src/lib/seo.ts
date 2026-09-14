@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site";
 
 export const defaultKeywords = [
+  "그리다, 공간",
+  "그리다 공간",
   "도배",
   "도배 시공",
   "인테리어",
@@ -10,7 +12,6 @@ export const defaultKeywords = [
   "상업 도배",
   "서울 도배",
   "경기 도배",
-  "그리다 공간",
 ] as const;
 
 type PageMetadataInput = {

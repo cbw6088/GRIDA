@@ -3,6 +3,8 @@ import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 
 export function SiteFooter() {
+  const { phoneDisplay, phoneTel, email, area } = siteConfig.contact;
+
   return (
     <footer className="border-t border-line px-5 sm:px-8">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 py-12 md:flex-row md:items-end md:justify-between">
@@ -31,6 +33,23 @@ export function SiteFooter() {
               </span>
             </span>
           </Link>
+          <p className="mt-5 text-sm text-muted">
+            {area} 도배 시공
+          </p>
+          <p className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-sm text-muted">
+            <a
+              href={`tel:${phoneTel}`}
+              className="transition-colors hover:text-foreground"
+            >
+              {phoneDisplay}
+            </a>
+            <a
+              href={`mailto:${email}`}
+              className="transition-colors hover:text-foreground"
+            >
+              {email}
+            </a>
+          </p>
         </div>
         <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted" aria-label="푸터 메뉴">
           {siteConfig.nav.map((item) => (
