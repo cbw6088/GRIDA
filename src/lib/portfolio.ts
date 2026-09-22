@@ -59,6 +59,213 @@ export const portfolioCategories: PortfolioCategory[] = [
 
 export const portfolioProjects: PortfolioProject[] = [
   {
+    slug: "pungnap-residential",
+    title: "풍납동 주거공간",
+    category: "residential",
+    location: "서울 송파구 풍납동",
+    wallpaper: "실크",
+    preview: {
+      src: "/portfolio/풍납동26-09-20/작은방/작은방_시공후2.JPG",
+      alt: "풍납동 주거공간 작은방 시공 후 내부",
+    },
+    sections: [
+      {
+        title: "안방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/풍납동26-09-20/안방/안방_시공전1.JPG",
+                alt: "안방 시공 전 내부",
+              },
+              {
+                src: "/portfolio/풍납동26-09-20/안방/안방_시공전2.JPG",
+                alt: "안방 시공 전 다른 각도",
+              },
+              {
+                src: "/portfolio/풍납동26-09-20/안방/안방_시공전3.JPG",
+                alt: "안방 시공 전 벽면",
+              },
+            ],
+          },
+          {
+            label: "초기 작업",
+            images: [
+              {
+                src: "/portfolio/풍납동26-09-20/안방/안방_기초1.JPG",
+                alt: "안방 초기 작업 중 바탕 처리",
+              },
+              {
+                src: "/portfolio/풍납동26-09-20/안방/안방_기초2.JPG",
+                alt: "안방 초기 작업 중 벽면 처리",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/풍납동26-09-20/안방/안방_시공후2.JPG",
+                alt: "안방 시공 후 창가 쪽 내부",
+              },
+              {
+                src: "/portfolio/풍납동26-09-20/안방/안방_시공후3.JPG",
+                alt: "안방 시공 후 다른 각도",
+              },
+              {
+                src: "/portfolio/풍납동26-09-20/안방/안방_시공후4.JPG",
+                alt: "안방 시공 후 출입문 쪽",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "작은방",
+        phases: [
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/풍납동26-09-20/작은방/작은방_시공후1.JPG",
+                alt: "작은방 시공 후 내부",
+              },
+              {
+                src: "/portfolio/풍납동26-09-20/작은방/작은방_시공후2.JPG",
+                alt: "작은방 시공 후 창가 쪽",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "주방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/풍납동26-09-20/주방/주방_시공전1.JPG",
+                alt: "주방 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "초기 작업",
+            images: [
+              {
+                src: "/portfolio/풍납동26-09-20/주방/주방_기초1.JPG",
+                alt: "주방 초기 작업 중 바탕 처리",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/풍납동26-09-20/주방/주방_시공후1.JPG",
+                alt: "주방 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    featured: true,
+  },
+  {
+    slug: "itaewon-residential",
+    title: "이태원 주거공간",
+    category: "residential",
+    location: "서울 이태원",
+    wallpaper: "광폭합지",
+    preview: {
+      src: "/portfolio/이태원26-09-19/안방/안방_작업후1.JPG",
+      alt: "이태원 주거공간 안방 시공 후 내부",
+    },
+    sections: [
+      {
+        title: "거실",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/이태원26-09-19/거실/거실_작업전2.JPG",
+                alt: "거실 시공 전 창가 쪽 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/이태원26-09-19/거실/거실_작업후1.JPG",
+                alt: "거실 시공 후 주방과 연결된 공간",
+              },
+              {
+                src: "/portfolio/이태원26-09-19/거실/거실_작업후2.JPG",
+                alt: "거실 시공 후 현관 쪽",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "안방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/이태원26-09-19/안방/안방_작업전1.JPG",
+                alt: "안방 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/이태원26-09-19/안방/안방_작업후1.JPG",
+                alt: "안방 시공 후 창가 쪽 내부",
+              },
+              {
+                src: "/portfolio/이태원26-09-19/안방/안방_작업후2.JPG",
+                alt: "안방 시공 후 출입문 쪽",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "작은방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/이태원26-09-19/작은방/작은방_작업전1.JPG",
+                alt: "작은방 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/이태원26-09-19/작은방/작은방_작업후1.JPG",
+                alt: "작은방 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    featured: true,
+  },
+  {
     slug: "seocho-residential",
     title: "서초구 주거공간",
     category: "residential",
@@ -573,5 +780,6 @@ export function formatProjectFacts(
 
 export function getWallpaperGuideHref(wallpaper?: string) {
   if (wallpaper?.includes("합지")) return "/wallpaper#hapji";
+  if (wallpaper?.includes("실크")) return "/wallpaper#silk";
   return "/wallpaper";
 }
