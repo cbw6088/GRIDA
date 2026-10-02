@@ -254,7 +254,7 @@ export const portfolioProjects: PortfolioProject[] = [
     location: "서울 송파구 풍납동",
     wallpaper: "실크",
     preview: {
-      src: "/portfolio/풍납동26-09-20/작은방/작은방_시공후2.JPG",
+      src: "/portfolio/풍납동26-09-18/작은방/작은방_시공후2.JPG",
       alt: "풍납동 주거공간 작은방 시공 후 내부",
     },
     sections: [
@@ -265,15 +265,15 @@ export const portfolioProjects: PortfolioProject[] = [
             label: "시공 전",
             images: [
               {
-                src: "/portfolio/풍납동26-09-20/안방/안방_시공전1.JPG",
+                src: "/portfolio/풍납동26-09-18/안방/안방_시공전1.JPG",
                 alt: "안방 시공 전 내부",
               },
               {
-                src: "/portfolio/풍납동26-09-20/안방/안방_시공전2.JPG",
+                src: "/portfolio/풍납동26-09-18/안방/안방_시공전2.JPG",
                 alt: "안방 시공 전 다른 각도",
               },
               {
-                src: "/portfolio/풍납동26-09-20/안방/안방_시공전3.JPG",
+                src: "/portfolio/풍납동26-09-18/안방/안방_시공전3.JPG",
                 alt: "안방 시공 전 벽면",
               },
             ],
@@ -282,11 +282,11 @@ export const portfolioProjects: PortfolioProject[] = [
             label: "초기 작업",
             images: [
               {
-                src: "/portfolio/풍납동26-09-20/안방/안방_기초1.JPG",
+                src: "/portfolio/풍납동26-09-18/안방/안방_기초1.JPG",
                 alt: "안방 초기 작업 중 바탕 처리",
               },
               {
-                src: "/portfolio/풍납동26-09-20/안방/안방_기초2.JPG",
+                src: "/portfolio/풍납동26-09-18/안방/안방_기초2.JPG",
                 alt: "안방 초기 작업 중 벽면 처리",
               },
             ],
@@ -295,15 +295,15 @@ export const portfolioProjects: PortfolioProject[] = [
             label: "시공 후",
             images: [
               {
-                src: "/portfolio/풍납동26-09-20/안방/안방_시공후2.JPG",
+                src: "/portfolio/풍납동26-09-18/안방/안방_시공후2.JPG",
                 alt: "안방 시공 후 창가 쪽 내부",
               },
               {
-                src: "/portfolio/풍납동26-09-20/안방/안방_시공후3.JPG",
+                src: "/portfolio/풍납동26-09-18/안방/안방_시공후3.JPG",
                 alt: "안방 시공 후 다른 각도",
               },
               {
-                src: "/portfolio/풍납동26-09-20/안방/안방_시공후4.JPG",
+                src: "/portfolio/풍납동26-09-18/안방/안방_시공후4.JPG",
                 alt: "안방 시공 후 출입문 쪽",
               },
             ],
@@ -317,11 +317,11 @@ export const portfolioProjects: PortfolioProject[] = [
             label: "시공 후",
             images: [
               {
-                src: "/portfolio/풍납동26-09-20/작은방/작은방_시공후1.JPG",
+                src: "/portfolio/풍납동26-09-18/작은방/작은방_시공후1.JPG",
                 alt: "작은방 시공 후 내부",
               },
               {
-                src: "/portfolio/풍납동26-09-20/작은방/작은방_시공후2.JPG",
+                src: "/portfolio/풍납동26-09-18/작은방/작은방_시공후2.JPG",
                 alt: "작은방 시공 후 창가 쪽",
               },
             ],
@@ -335,7 +335,7 @@ export const portfolioProjects: PortfolioProject[] = [
             label: "시공 전",
             images: [
               {
-                src: "/portfolio/풍납동26-09-20/주방/주방_시공전1.JPG",
+                src: "/portfolio/풍납동26-09-18/주방/주방_시공전1.JPG",
                 alt: "주방 시공 전 내부",
               },
             ],
@@ -344,7 +344,7 @@ export const portfolioProjects: PortfolioProject[] = [
             label: "초기 작업",
             images: [
               {
-                src: "/portfolio/풍납동26-09-20/주방/주방_기초1.JPG",
+                src: "/portfolio/풍납동26-09-18/주방/주방_기초1.JPG",
                 alt: "주방 초기 작업 중 바탕 처리",
               },
             ],
@@ -353,7 +353,7 @@ export const portfolioProjects: PortfolioProject[] = [
             label: "시공 후",
             images: [
               {
-                src: "/portfolio/풍납동26-09-20/주방/주방_시공후1.JPG",
+                src: "/portfolio/풍납동26-09-18/주방/주방_시공후1.JPG",
                 alt: "주방 시공 후 내부",
               },
             ],
