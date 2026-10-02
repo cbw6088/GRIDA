@@ -59,6 +59,195 @@ export const portfolioCategories: PortfolioCategory[] = [
 
 export const portfolioProjects: PortfolioProject[] = [
   {
+    slug: "yeoksam-goshitel",
+    title: "역삼동 고시텔",
+    category: "commercial",
+    location: "서울 강남구 역삼동",
+    wallpaper: "소폭합지",
+    preview: {
+      src: "/portfolio/역삼동 26-09-23,29/101호/거실/시공후_거실1.JPG",
+      alt: "역삼동 고시텔 101호 거실 시공 후 내부",
+    },
+    sections: [
+      {
+        title: "101호 거실",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/역삼동 26-09-23,29/101호/거실/시공전_거실1.JPG",
+                alt: "101호 거실 시공 전 내부",
+              },
+              {
+                src: "/portfolio/역삼동 26-09-23,29/101호/거실/시공전_거실2.JPG",
+                alt: "101호 거실 시공 전 다른 각도",
+              },
+            ],
+          },
+          {
+            label: "초기 작업",
+            images: [
+              {
+                src: "/portfolio/역삼동 26-09-23,29/101호/거실/초배_거실1.JPG",
+                alt: "101호 거실 초기 작업 중 초배",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/역삼동 26-09-23,29/101호/거실/시공후_거실1.JPG",
+                alt: "101호 거실 시공 후 내부",
+              },
+              {
+                src: "/portfolio/역삼동 26-09-23,29/101호/거실/시공후_거실2.JPG",
+                alt: "101호 거실 시공 후 다른 각도",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "101호 방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/역삼동 26-09-23,29/101호/방/시공전_방1.JPG",
+                alt: "101호 방 시공 전 내부",
+              },
+              {
+                src: "/portfolio/역삼동 26-09-23,29/101호/방/시공전_방2.JPG",
+                alt: "101호 방 시공 전 다른 각도",
+              },
+              {
+                src: "/portfolio/역삼동 26-09-23,29/101호/방/시공전_방3.JPG",
+                alt: "101호 방 시공 전 벽면",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/역삼동 26-09-23,29/101호/방/시공후_방1.JPG",
+                alt: "101호 방 시공 후 내부",
+              },
+              {
+                src: "/portfolio/역삼동 26-09-23,29/101호/방/시공후_방2.JPG",
+                alt: "101호 방 시공 후 다른 각도",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "102호 거실",
+        phases: [
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/역삼동 26-09-23,29/102호/거실/시공후_거실1.JPG",
+                alt: "102호 거실 시공 후 내부",
+              },
+              {
+                src: "/portfolio/역삼동 26-09-23,29/102호/거실/시공후_거실2.JPG",
+                alt: "102호 거실 시공 후 다른 각도",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "102호 안방",
+        phases: [
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/역삼동 26-09-23,29/102호/안방/시공후_안방1.JPG",
+                alt: "102호 안방 시공 후 내부",
+              },
+              {
+                src: "/portfolio/역삼동 26-09-23,29/102호/안방/시공후_안방2.JPG",
+                alt: "102호 안방 시공 후 다른 각도",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "102호 작은방",
+        phases: [
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/역삼동 26-09-23,29/102호/작은방/시공후_작은방1.JPG",
+                alt: "102호 작은방 시공 후 내부",
+              },
+              {
+                src: "/portfolio/역삼동 26-09-23,29/102호/작은방/시공후_작은방2.JPG",
+                alt: "102호 작은방 시공 후 다른 각도",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "210호",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/역삼동 26-09-23,29/210호/시공전.JPG",
+                alt: "210호 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/역삼동 26-09-23,29/210호/시공후.JPG",
+                alt: "210호 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "310호",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/역삼동 26-09-23,29/310호/시공전.JPG",
+                alt: "310호 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/역삼동 26-09-23,29/310호/시공후.JPG",
+                alt: "310호 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    featured: true,
+  },
+  {
     slug: "pungnap-residential",
     title: "풍납동 주거공간",
     category: "residential",
