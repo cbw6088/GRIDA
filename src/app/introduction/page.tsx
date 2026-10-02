@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { RevealOnScroll } from "@/components/reveal-on-scroll";
 import { ValueSheets } from "@/components/value-sheets";
 import { pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
@@ -49,14 +50,23 @@ const aftercareItems = [
   {
     title: "하루이틀은 환기",
     text: "풀 냄새가 빠지도록 창문을 조금 열어 두세요. 강한 바람이나 직사광선이 벽에 오래 닿지 않게만 해 주시면 됩니다.",
+    label: "환기",
+    tone: "rgba(168, 186, 174, 0.1)",
+    accent: "rgb(142, 158, 148)",
   },
   {
     title: "이음새는 그대로",
     text: "마르는 동안 이음새와 코너를 손으로 문지르거나, 가구를 벽에 바로 밀착하지 않는 것이 좋습니다.",
+    label: "이음새",
+    tone: "rgba(214, 190, 170, 0.12)",
+    accent: "rgb(188, 160, 138)",
   },
   {
     title: "벽지 종류에 맞게",
     text: "합지는 물기를 피하고 마른 걸레로만 가볍게 닦아 주세요. 실크는 며칠 지난 뒤 부드러운 걸레로 관리할 수 있습니다.",
+    label: "관리",
+    tone: "rgba(168, 180, 196, 0.1)",
+    accent: "rgb(132, 148, 168)",
   },
 ];
 
@@ -198,7 +208,7 @@ export default function IntroductionPage() {
             시공에서 지키는 것
           </h2>
 
-          <ValueSheets values={values} />
+          <ValueSheets values={values} texture="weave" />
         </div>
       </section>
 
@@ -210,43 +220,47 @@ export default function IntroductionPage() {
         />
 
         <div className="relative mx-auto w-full max-w-6xl">
-          <p className="text-sm tracking-[0.22em] text-muted">진행</p>
-          <h2 className="mt-4 text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
-            이렇게 진행됩니다
-          </h2>
-          <p className="mt-4 max-w-xl text-pretty break-keep text-muted">
-            큰 흐름만 먼저 알려 드립니다. 자세한 일정은 현장과 범위에 맞춰
-            조율합니다.
-          </p>
+          <RevealOnScroll>
+            <p className="text-sm tracking-[0.22em] text-muted">진행</p>
+            <h2 className="mt-4 text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
+              이렇게 진행됩니다
+            </h2>
+            <p className="mt-4 max-w-xl text-pretty break-keep text-muted">
+              큰 흐름만 먼저 알려 드립니다. 자세한 일정은 현장과 범위에 맞춰
+              조율합니다.
+            </p>
+          </RevealOnScroll>
 
-          <ol className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <ol className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, index) => (
               <li key={step.title} className="relative">
-                <article className="flex h-full flex-col border border-line bg-white p-5">
-                  <div className="flex items-center justify-between gap-3">
-                    <p className="text-xs tracking-[0.18em] text-muted">
-                      Step 0{index + 1}
+                <RevealOnScroll delay={index * 0.08} className="h-full">
+                  <article className="group relative flex h-full flex-col border border-line bg-white p-5 transition-transform duration-700 ease-out hover:-translate-y-0.5">
+                    <div className="flex items-center justify-between gap-3">
+                      <p className="text-xs tracking-[0.18em] text-muted">
+                        Step 0{index + 1}
+                      </p>
+                      {index < steps.length - 1 ? (
+                        <span
+                          className="hidden text-sm text-foreground/40 lg:inline"
+                          aria-hidden
+                        >
+                          →
+                        </span>
+                      ) : null}
+                    </div>
+                    <h3 className="mt-5 text-xl font-medium text-foreground">
+                      {step.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-7 text-pretty break-keep text-muted">
+                      {step.phrases.map((phrase) => (
+                        <span key={phrase} className="mr-[0.3em] inline-block last:mr-0">
+                          {phrase}
+                        </span>
+                      ))}
                     </p>
-                    {index < steps.length - 1 ? (
-                      <span
-                        className="hidden text-sm text-foreground/40 lg:inline"
-                        aria-hidden
-                      >
-                        →
-                      </span>
-                    ) : null}
-                  </div>
-                  <h3 className="mt-5 text-xl font-medium text-foreground">
-                    {step.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-7 text-pretty break-keep text-muted">
-                    {step.phrases.map((phrase) => (
-                      <span key={phrase} className="mr-[0.3em] inline-block last:mr-0">
-                        {phrase}
-                      </span>
-                    ))}
-                  </p>
-                </article>
+                  </article>
+                </RevealOnScroll>
               </li>
             ))}
           </ol>
@@ -264,30 +278,18 @@ export default function IntroductionPage() {
         />
 
         <div className="relative mx-auto w-full max-w-6xl">
-          <p className="text-sm tracking-[0.22em] text-muted">관리</p>
-          <h2 className="mt-4 text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
-            시공 후 관리
-          </h2>
-          <p className="mt-4 max-w-xl text-pretty break-keep text-muted">
-            마감한 벽을 오래 쓰려면, 마르는 며칠만 조금만 신경 쓰면 됩니다.
-            벽지별 차이는 도배지 안내에서 이어서 보실 수 있습니다.
-          </p>
+          <RevealOnScroll>
+            <p className="text-sm tracking-[0.22em] text-muted">관리</p>
+            <h2 className="mt-4 text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
+              시공 후 관리
+            </h2>
+            <p className="mt-4 max-w-xl text-pretty break-keep text-muted">
+              마감한 벽을 오래 쓰려면, 마르는 며칠만 조금만 신경 쓰면 됩니다.
+              벽지별 차이는 도배지 안내에서 이어서 보실 수 있습니다.
+            </p>
+          </RevealOnScroll>
 
-          <ul className="mt-12 grid gap-4 md:grid-cols-3">
-            {aftercareItems.map((item, index) => (
-              <li key={item.title} className="border border-line bg-white p-5">
-                <p className="text-xs tracking-[0.18em] text-muted">
-                  0{index + 1}
-                </p>
-                <h3 className="mt-4 text-xl font-medium text-foreground">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-pretty break-keep text-sm leading-7 text-muted">
-                  {item.text}
-                </p>
-              </li>
-            ))}
-          </ul>
+          <ValueSheets values={aftercareItems} texture="twill" />
 
           <p className="mt-8 text-sm leading-7 text-muted">
             합지·실크 관리가 더 궁금하시면{" "}

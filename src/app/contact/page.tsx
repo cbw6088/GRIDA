@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactFaqList } from "@/components/contact-faq-list";
+import { CornerMark } from "@/components/corner-mark";
+import { RevealOnScroll } from "@/components/reveal-on-scroll";
 import { pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
@@ -114,19 +116,20 @@ export default function ContactPage() {
         />
 
         <div className="relative mx-auto grid w-full max-w-6xl gap-14 md:grid-cols-2 md:gap-20">
-          <div>
+          <RevealOnScroll>
             <p className="text-sm tracking-[0.22em] text-muted">연락처</p>
             <h2 className="mt-4 text-3xl font-medium tracking-tight text-foreground">
               직접 연락
             </h2>
 
             <dl className="mt-10 space-y-8">
-              <div className="relative border-t border-line pt-6 pl-4">
+              <div className="relative border-t border-line pt-6 pl-4 pr-12">
                 <span
                   className="absolute left-0 top-6 h-3 w-px"
                   style={{ background: "rgba(var(--shape-sage), 0.9)" }}
                   aria-hidden
                 />
+                <CornerMark className="right-0 top-6 h-6 w-6" />
                 <dt className="text-sm tracking-[0.18em] text-muted">전화</dt>
                 <dd className="mt-2">
                   <a
@@ -137,12 +140,13 @@ export default function ContactPage() {
                   </a>
                 </dd>
               </div>
-              <div className="relative border-t border-line pt-6 pl-4">
+              <div className="relative border-t border-line pt-6 pl-4 pr-12">
                 <span
                   className="absolute left-0 top-6 h-3 w-px"
                   style={{ background: "rgba(var(--shape-clay), 0.9)" }}
                   aria-hidden
                 />
+                <CornerMark className="right-0 top-6 h-6 w-6" />
                 <dt className="text-sm tracking-[0.18em] text-muted">이메일</dt>
                 <dd className="mt-2">
                   <a
@@ -153,12 +157,13 @@ export default function ContactPage() {
                   </a>
                 </dd>
               </div>
-              <div className="relative border-t border-line pt-6 pl-4">
+              <div className="relative border-t border-line pt-6 pl-4 pr-12">
                 <span
                   className="absolute left-0 top-6 h-3 w-px"
                   style={{ background: "rgba(var(--shape-slate), 0.9)" }}
                   aria-hidden
                 />
+                <CornerMark className="right-0 top-6 h-6 w-6" />
                 <dt className="text-sm tracking-[0.18em] text-muted">시공 지역</dt>
                 <dd className="mt-2 text-xl text-foreground">{area}</dd>
                 <p className="mt-2 text-sm text-muted">
@@ -166,9 +171,9 @@ export default function ContactPage() {
                 </p>
               </div>
             </dl>
-          </div>
+          </RevealOnScroll>
 
-          <div>
+          <RevealOnScroll delay={0.08}>
             <p className="text-sm tracking-[0.22em] text-muted">안내</p>
             <h2 className="mt-4 text-3xl font-medium tracking-tight text-foreground">
               문의 전에 알려주시면
@@ -183,8 +188,9 @@ export default function ContactPage() {
               {prepareItems.map((item, index) => (
                 <li
                   key={item}
-                  className="flex gap-3 border border-line px-4 py-3 text-sm text-foreground"
+                  className="relative flex gap-3 border border-line px-4 py-3 pr-12 text-sm text-foreground"
                 >
+                  <CornerMark className="right-3 top-1/2 h-5 w-5 -translate-y-1/2" />
                   <span className="text-muted">0{index + 1}</span>
                   <span className="text-pretty break-keep">{item}</span>
                 </li>
@@ -208,7 +214,7 @@ export default function ContactPage() {
               </Link>
               를 참고해 주세요.
             </p>
-          </div>
+          </RevealOnScroll>
         </div>
       </section>
 
@@ -220,16 +226,20 @@ export default function ContactPage() {
         />
 
         <div className="relative mx-auto w-full max-w-6xl">
-          <p className="text-sm tracking-[0.22em] text-muted">안내</p>
-          <h2 className="mt-4 text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
-            자주 묻는 질문
-          </h2>
-          <p className="mt-4 max-w-xl text-pretty break-keep text-muted">
-            전화 전에 많이 물어보시는 내용입니다. 여기에 없는 부분은 편하게
-            연락해 주세요.
-          </p>
+          <RevealOnScroll>
+            <p className="text-sm tracking-[0.22em] text-muted">안내</p>
+            <h2 className="mt-4 text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
+              자주 묻는 질문
+            </h2>
+            <p className="mt-4 max-w-xl text-pretty break-keep text-muted">
+              전화 전에 많이 물어보시는 내용입니다. 여기에 없는 부분은 편하게
+              연락해 주세요.
+            </p>
+          </RevealOnScroll>
 
-          <ContactFaqList faqs={faqs} />
+          <RevealOnScroll delay={0.08}>
+            <ContactFaqList faqs={faqs} />
+          </RevealOnScroll>
         </div>
       </section>
 

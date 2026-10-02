@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { SilkTexture } from "@/components/silk-texture";
 
 type ValueItem = {
   title: string;
@@ -10,7 +11,13 @@ type ValueItem = {
   accent: string;
 };
 
-export function ValueSheets({ values }: { values: ValueItem[] }) {
+export function ValueSheets({
+  values,
+  texture,
+}: {
+  values: ValueItem[];
+  texture?: "weave" | "twill";
+}) {
   const listRef = useRef<HTMLUListElement>(null);
   const [dropped, setDropped] = useState(false);
 
@@ -54,7 +61,7 @@ export function ValueSheets({ values }: { values: ValueItem[] }) {
         >
           <div className="relative h-full transition-transform duration-700 ease-out group-hover:-translate-y-0.5">
             <article
-              className={`wallpaper-sheet relative flex h-full min-h-[280px] flex-col justify-between p-6 ${
+              className={`wallpaper-sheet relative flex h-full min-h-[280px] flex-col justify-between overflow-hidden p-6 ${
                 dropped ? "is-dropped" : ""
               }`}
               style={{
@@ -65,6 +72,7 @@ export function ValueSheets({ values }: { values: ValueItem[] }) {
                     : "inset 1px 0 0 rgba(255,255,255,0.45)",
               }}
             >
+              {texture ? <SilkTexture variant={texture} /> : null}
               <div className="relative flex items-start justify-between gap-4">
                 <p
                   className="text-xs tracking-[0.18em]"
