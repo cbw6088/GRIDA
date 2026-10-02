@@ -5,6 +5,7 @@ import {
   formatProjectFacts,
   getCategoryLabel,
   getFeaturedProjects,
+  getProjectHref,
 } from "@/lib/portfolio";
 import { siteConfig } from "@/lib/site";
 
@@ -81,9 +82,9 @@ export default function HomePage() {
               const facts = formatProjectFacts(work);
 
               return (
-                <li key={work.slug} className="group">
+                <li key={work.id} className="group">
                   <Link
-                    href={`/portfolio/${work.slug}`}
+                    href={getProjectHref(work)}
                     className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground"
                   >
                     <div className="relative aspect-[4/5] overflow-hidden bg-soft transition-transform duration-700 ease-out group-hover:-translate-y-0.5">

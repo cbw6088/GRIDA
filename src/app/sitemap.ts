@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const projects = portfolioProjects.map((project) => ({
-    url: new URL(`/portfolio/${project.slug}`, siteConfig.url).href,
+    url: new URL(`/portfolio/${project.id}`, siteConfig.url).href,
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));

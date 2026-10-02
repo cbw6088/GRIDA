@@ -4,25 +4,28 @@ import { notFound } from "next/navigation";
 import { PortfolioProjectGallery } from "@/components/portfolio-project-gallery";
 import {
   getCategoryLabel,
-  getProjectBySlug,
+  getProjectById,
+  getProjectHref,
   getWallpaperGuideHref,
+  parseProjectId,
   portfolioProjects,
 } from "@/lib/portfolio";
 import { pageMetadata } from "@/lib/seo";
 
 type PortfolioDetailPageProps = {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ id: string }>;
 };
 
 export function generateStaticParams() {
-  return portfolioProjects.map((project) => ({ slug: project.slug }));
+  return portfolioProjects.map((project) => ({ id: String(project.id) }));
 }
 
 export async function generateMetadata({
   params,
 }: PortfolioDetailPageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const { id } = await params;
+  const projectId = parseProjectId(id);
+  const project = projectId ? getProjectById(projectId) : undefined;
 
   if (!project) {
     return pageMetadata({
@@ -56,15 +59,16 @@ export async function generateMetadata({
       project.wallpaper,
       project.location ? `${project.location} 도배` : undefined,
     ].filter((keyword): keyword is string => Boolean(keyword)),
-    path: `/portfolio/${project.slug}`,
+    path: getProjectHref(project),
   });
 }
 
 export default async function PortfolioDetailPage({
   params,
 }: PortfolioDetailPageProps) {
-  const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const { id } = await params;
+  const projectId = parseProjectId(id);
+  const project = projectId ? getProjectById(projectId) : undefined;
 
   if (!project) {
     notFound();

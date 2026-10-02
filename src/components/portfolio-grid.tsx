@@ -6,6 +6,7 @@ import { useMemo, useState } from "react";
 import {
   formatProjectFacts,
   getCategoryLabel,
+  getProjectHref,
   portfolioCategories,
   portfolioProjects,
   type PortfolioCategoryId,
@@ -27,7 +28,7 @@ function PortfolioCard({
   return (
     <li className="group">
       <Link
-        href={`/portfolio/${project.slug}`}
+        href={getProjectHref(project)}
         className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground"
       >
         <div className="relative aspect-[4/5] overflow-hidden bg-soft">
@@ -105,7 +106,7 @@ export function PortfolioGrid() {
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {filteredProjects.map((project, index) => (
             <PortfolioCard
-              key={project.slug}
+              key={project.id}
               project={project}
               priority={index === 0}
             />

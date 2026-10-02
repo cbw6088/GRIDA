@@ -8,6 +8,40 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: projectRoot,
   },
+  async redirects() {
+    return [
+      {
+        source: "/portfolio/yeoksam-commercial",
+        destination: "/portfolio/1",
+        permanent: true,
+      },
+      {
+        source: "/portfolio/songpa-residential",
+        destination: "/portfolio/2",
+        permanent: true,
+      },
+      {
+        source: "/portfolio/seocho-residential",
+        destination: "/portfolio/3",
+        permanent: true,
+      },
+      {
+        source: "/portfolio/itaewon-residential",
+        destination: "/portfolio/4",
+        permanent: true,
+      },
+      {
+        source: "/portfolio/pungnap-residential",
+        destination: "/portfolio/5",
+        permanent: true,
+      },
+      {
+        source: "/portfolio/yeoksam-goshitel",
+        destination: "/portfolio/6",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],

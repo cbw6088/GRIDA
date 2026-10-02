@@ -31,7 +31,7 @@ export type PortfolioGallerySection = {
 };
 
 export type PortfolioProject = {
-  slug: string;
+  id: number;
   title: string;
   category: PortfolioCategoryId;
   location?: string;
@@ -57,9 +57,8 @@ export const portfolioCategories: PortfolioCategory[] = [
   { id: "maintenance", label: "유지 보수" },
 ];
 
-export const portfolioProjects: PortfolioProject[] = [
+const portfolioProjectEntries: Omit<PortfolioProject, "id">[] = [
   {
-    slug: "yeoksam-goshitel",
     title: "역삼동 고시텔",
     category: "commercial",
     location: "서울 강남구 역삼동",
@@ -248,7 +247,6 @@ export const portfolioProjects: PortfolioProject[] = [
     featured: true,
   },
   {
-    slug: "pungnap-residential",
     title: "풍납동 주거공간",
     category: "residential",
     location: "서울 송파구 풍납동",
@@ -364,7 +362,6 @@ export const portfolioProjects: PortfolioProject[] = [
     featured: true,
   },
   {
-    slug: "itaewon-residential",
     title: "이태원 주거공간",
     category: "residential",
     location: "서울 이태원",
@@ -455,7 +452,6 @@ export const portfolioProjects: PortfolioProject[] = [
     featured: true,
   },
   {
-    slug: "seocho-residential",
     title: "서초구 주거공간",
     category: "residential",
     location: "서울 서초구",
@@ -609,7 +605,6 @@ export const portfolioProjects: PortfolioProject[] = [
     featured: true,
   },
   {
-    slug: "songpa-residential",
     title: "송파구 주거공간",
     category: "residential",
     location: "서울 송파구",
@@ -739,7 +734,6 @@ export const portfolioProjects: PortfolioProject[] = [
     featured: true,
   },
   {
-    slug: "yeoksam-commercial",
     title: "역삼동 상업공간",
     category: "commercial",
     location: "서울 강남구 역삼동",
@@ -949,12 +943,28 @@ export const portfolioProjects: PortfolioProject[] = [
   },
 ];
 
+export const portfolioProjects: PortfolioProject[] =
+  portfolioProjectEntries.map((project, index) => ({
+    id: portfolioProjectEntries.length - index,
+    ...project,
+  }));
+
 export function getCategoryLabel(id: PortfolioCategoryId) {
   return portfolioCategories.find((category) => category.id === id)?.label ?? id;
 }
 
-export function getProjectBySlug(slug: string) {
-  return portfolioProjects.find((project) => project.slug === slug);
+export function getProjectById(id: number) {
+  return portfolioProjects.find((project) => project.id === id);
+}
+
+export function getProjectHref(project: Pick<PortfolioProject, "id">) {
+  return `/portfolio/${project.id}`;
+}
+
+export function parseProjectId(value: string) {
+  if (!/^\d+$/.test(value)) return null;
+  const id = Number(value);
+  return id > 0 ? id : null;
 }
 
 export function getFeaturedProjects(limit = 3) {
