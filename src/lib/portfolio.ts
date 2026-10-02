@@ -972,3 +972,59 @@ export function getWallpaperGuideHref(wallpaper?: string) {
   if (wallpaper?.includes("실크")) return "/wallpaper#silk";
   return "/wallpaper";
 }
+
+export type PortfolioLightboxItem = {
+  src: string;
+  alt: string;
+  caption?: string;
+  context: string;
+};
+
+export function getProjectLightboxItems(
+  project: Pick<PortfolioProject, "sections" | "gallery">,
+) {
+  const items: PortfolioLightboxItem[] = [];
+
+  if (project.sections?.length) {
+    for (const section of project.sections) {
+      if (section.phases?.length) {
+        for (const phase of section.phases) {
+          for (const image of phase.images) {
+            if (!image.src) continue;
+            items.push({
+              src: image.src,
+              alt: image.alt,
+              caption: image.caption,
+              context: `${section.title} · ${phase.label}`,
+            });
+          }
+        }
+        continue;
+      }
+
+      for (const image of section.images ?? []) {
+        if (!image.src) continue;
+        items.push({
+          src: image.src,
+          alt: image.alt,
+          caption: image.caption,
+          context: section.title,
+        });
+      }
+    }
+
+    return items;
+  }
+
+  for (const image of project.gallery ?? []) {
+    if (!image.src) continue;
+    items.push({
+      src: image.src,
+      alt: image.alt,
+      caption: image.caption,
+      context: image.caption ?? image.alt,
+    });
+  }
+
+  return items;
+}

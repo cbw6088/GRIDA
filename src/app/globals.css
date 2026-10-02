@@ -37,6 +37,23 @@ html {
   scroll-behavior: smooth;
 }
 
+.portfolio-lightbox {
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: #111;
+  overscroll-behavior: contain;
+}
+
+.portfolio-lightbox::backdrop {
+  background: rgb(17 17 17 / 0.96);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
