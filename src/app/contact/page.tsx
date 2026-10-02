@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ContactFaqList } from "@/components/contact-faq-list";
 import { pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "도배 시공 상담",
   description:
-    "서울·경기 도배 시공 상담 및 견적 문의. 주거·상업 공간 도배, 합지·실크 선택까지 그리다 공간에 편하게 남겨 주세요.",
+    "서울·경기 도배 시공 상담 및 견적 문의. 자주 묻는 질문과 함께 주거·상업 공간 도배, 합지·실크 선택까지 편하게 남겨 주세요.",
   keywords: [
     "도배 견적",
     "도배 상담",
@@ -14,6 +15,7 @@ export const metadata: Metadata = pageMetadata({
     "인테리어 상담",
     "서울 도배 견적",
     "경기 도배 견적",
+    "도배 FAQ",
   ],
   path: "/contact",
 });
@@ -23,6 +25,34 @@ const prepareItems = [
   "대략적인 범위나 방 개수",
   "원하시는 일정 (급하신 정도)",
   "관심 있는 벽지 (합지 / 실크 등)",
+];
+
+const faqs = [
+  {
+    question: "견적은 어떻게 나오나요?",
+    answer:
+      "벽 면적, 바탕 상태, 선택하신 벽지에 따라 달라집니다. 공간과 대략적인 범위를 말씀해 주시면 그 자리에서 견적을 드릴 수 있습니다. 벽 보수가 많거나 범위가 애매할 때만 현장을 보고 조율하기도 합니다.",
+  },
+  {
+    question: "하루 만에 끝나나요?",
+    answer:
+      "방 하나나 부분 도배는 당일에 끝나는 경우가 많습니다. 집 전체나 바탕 보수가 많으면 하루이틀 더 걸릴 수 있습니다.",
+  },
+  {
+    question: "가구는 누가 옮기나요?",
+    answer:
+      "벽을 비워 주시면 시공이 수월합니다. 옮기기 어려운 큰 가구가 있으면 미리 말씀해 주세요. 가능한 범위에서 함께 맞춥니다.",
+  },
+  {
+    question: "방 하나, 한쪽 벽만 해도 되나요?",
+    answer:
+      "부분 도배도 진행합니다. 방 하나, 거실 한쪽 벽처럼 범위가 작아도 편하게 문의해 주세요.",
+  },
+  {
+    question: "주말에도 가능한가요?",
+    answer:
+      "일정에 따라 주말 시공도 상담합니다. 원하시는 날짜를 먼저 알려 주시면 맞춰 보겠습니다.",
+  },
 ];
 
 export default function ContactPage() {
@@ -169,9 +199,37 @@ export default function ContactPage() {
               >
                 도배지 안내
               </Link>
-              도 함께 참고해 주세요.
+              를, 시공 후 관리는{" "}
+              <Link
+                href="/introduction#aftercare"
+                className="text-foreground underline decoration-line underline-offset-4 transition-colors hover:decoration-foreground"
+              >
+                소개 페이지
+              </Link>
+              를 참고해 주세요.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden border-b border-line px-5 py-24 sm:px-8 md:py-28">
+        <div
+          className="animate-soft-pulse pointer-events-none absolute right-0 top-10 h-48 w-48 rounded-full blur-3xl"
+          style={{ background: "rgba(var(--shape-slate), 0.14)" }}
+          aria-hidden
+        />
+
+        <div className="relative mx-auto w-full max-w-6xl">
+          <p className="text-sm tracking-[0.22em] text-muted">안내</p>
+          <h2 className="mt-4 text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
+            자주 묻는 질문
+          </h2>
+          <p className="mt-4 max-w-xl text-pretty break-keep text-muted">
+            전화 전에 많이 물어보시는 내용입니다. 여기에 없는 부분은 편하게
+            연락해 주세요.
+          </p>
+
+          <ContactFaqList faqs={faqs} />
         </div>
       </section>
 

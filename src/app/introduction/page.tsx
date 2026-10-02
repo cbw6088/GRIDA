@@ -7,13 +7,14 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "도배 시공 소개",
   description:
-    "서울·경기 주거·상업 공간 도배 시공 브랜드 그리다, 공간입니다. 바탕 작업부터 단정한 마감까지, 시공 방식과 가치를 소개합니다.",
+    "서울·경기 주거·상업 공간 도배 시공 브랜드 그리다, 공간입니다. 바탕 작업부터 단정한 마감, 시공 후 관리까지 소개합니다.",
   keywords: [
     "도배 업체",
     "도배 소개",
     "인테리어 시공",
     "주거 인테리어",
     "상업 인테리어",
+    "도배 후 관리",
   ],
   path: "/introduction",
 });
@@ -41,6 +42,21 @@ const values = [
     label: "상담",
     tone: "rgba(132, 148, 168, 0.16)",
     accent: "rgb(132, 148, 168)",
+  },
+];
+
+const aftercareItems = [
+  {
+    title: "하루이틀은 환기",
+    text: "풀 냄새가 빠지도록 창문을 조금 열어 두세요. 강한 바람이나 직사광선이 벽에 오래 닿지 않게만 해 주시면 됩니다.",
+  },
+  {
+    title: "이음새는 그대로",
+    text: "마르는 동안 이음새와 코너를 손으로 문지르거나, 가구를 벽에 바로 밀착하지 않는 것이 좋습니다.",
+  },
+  {
+    title: "벽지 종류에 맞게",
+    text: "합지는 물기를 피하고 마른 걸레로만 가볍게 닦아 주세요. 실크는 며칠 지난 뒤 부드러운 걸레로 관리할 수 있습니다.",
   },
 ];
 
@@ -234,6 +250,55 @@ export default function IntroductionPage() {
               </li>
             ))}
           </ol>
+        </div>
+      </section>
+
+      <section
+        id="aftercare"
+        className="scroll-mt-36 relative overflow-hidden border-b border-line px-5 py-24 sm:px-8 md:scroll-mt-40 md:py-28"
+      >
+        <div
+          className="animate-soft-pulse pointer-events-none absolute -left-12 top-10 h-48 w-48 rounded-full blur-3xl"
+          style={{ background: "rgba(var(--shape-sage), 0.16)" }}
+          aria-hidden
+        />
+
+        <div className="relative mx-auto w-full max-w-6xl">
+          <p className="text-sm tracking-[0.22em] text-muted">관리</p>
+          <h2 className="mt-4 text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
+            시공 후 관리
+          </h2>
+          <p className="mt-4 max-w-xl text-pretty break-keep text-muted">
+            마감한 벽을 오래 쓰려면, 마르는 며칠만 조금만 신경 쓰면 됩니다.
+            벽지별 차이는 도배지 안내에서 이어서 보실 수 있습니다.
+          </p>
+
+          <ul className="mt-12 grid gap-4 md:grid-cols-3">
+            {aftercareItems.map((item, index) => (
+              <li key={item.title} className="border border-line bg-white p-5">
+                <p className="text-xs tracking-[0.18em] text-muted">
+                  0{index + 1}
+                </p>
+                <h3 className="mt-4 text-xl font-medium text-foreground">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-pretty break-keep text-sm leading-7 text-muted">
+                  {item.text}
+                </p>
+              </li>
+            ))}
+          </ul>
+
+          <p className="mt-8 text-sm leading-7 text-muted">
+            합지·실크 관리가 더 궁금하시면{" "}
+            <Link
+              href="/wallpaper"
+              className="text-foreground underline decoration-line underline-offset-4 transition-colors hover:decoration-foreground"
+            >
+              도배지 안내
+            </Link>
+            를 참고해 주세요.
+          </p>
         </div>
       </section>
 

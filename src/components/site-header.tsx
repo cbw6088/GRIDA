@@ -3,7 +3,7 @@
 import { OptimizedImage } from "@/components/optimized-image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { siteConfig } from "@/lib/site";
 
 function isActive(pathname: string, href: string) {
@@ -13,6 +13,10 @@ function isActive(pathname: string, href: string) {
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   return (
     <header className="fixed inset-x-0 top-0 z-40 border-b border-[#ececec] bg-white px-5 sm:px-8">
@@ -99,13 +103,17 @@ export function SiteHeader() {
         </button>
       </div>
 
-      {open ? (
-        <nav
-          id="mobile-nav"
-          className="border-t border-line bg-white px-5 py-4 md:hidden"
-          aria-label="모바일 메뉴"
-        >
-          <ul className="flex flex-col gap-1">
+      <nav
+        id="mobile-nav"
+        className={`grid md:hidden transition-[grid-template-rows] duration-300 ease-out motion-reduce:transition-none ${
+          open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        }`}
+        aria-label="모바일 메뉴"
+        aria-hidden={!open}
+        inert={!open}
+      >
+        <div className="overflow-hidden">
+          <ul className="flex flex-col gap-1 border-t border-line bg-white px-5 py-4">
             {siteConfig.nav.map((item) => (
               <li key={item.href}>
                 <Link
@@ -116,14 +124,15 @@ export function SiteHeader() {
                       : "text-muted"
                   }`}
                   onClick={() => setOpen(false)}
+                  tabIndex={open ? undefined : -1}
                 >
                   {item.label}
                 </Link>
               </li>
             ))}
           </ul>
-        </nav>
-      ) : null}
+        </div>
+      </nav>
     </header>
   );
 }
