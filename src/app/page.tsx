@@ -53,9 +53,50 @@ export default function HomePage() {
               href="/introduction"
               className="mt-8 inline-flex w-fit items-center gap-2 text-sm text-foreground transition-all duration-300 hover:gap-3 hover:opacity-60"
             >
-              브랜드 소개 보기
+              소개
               <span aria-hidden>→</span>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative border-t border-line px-5 py-24 sm:px-8 md:py-28">
+        <div className="relative mx-auto grid w-full max-w-6xl gap-12 md:grid-cols-[0.9fr_1.1fr] md:gap-20">
+          <div className="relative">
+            <div
+              className="absolute -left-3 top-0 h-16 w-px"
+              style={{ background: "rgba(var(--shape-clay), 0.85)" }}
+              aria-hidden
+            />
+            <p className="text-sm tracking-[0.22em] text-muted">도배지</p>
+            <h2 className="mt-4 text-3xl font-medium leading-snug tracking-tight text-foreground sm:text-4xl">
+              공간에 맞는
+              <br />
+              벽지 고르기
+            </h2>
+          </div>
+          <div className="flex flex-col justify-end">
+            <p className="max-w-xl text-pretty break-keep text-base leading-8 text-muted sm:text-[1.05rem]">
+              합지, 실크, 한지, 뮤럴처럼 벽지마다 어울리는 공간과 마감이
+              다릅니다. 종류를 비교한 뒤, 예시 거실에 질감과 색을 입혀 볼 수
+              있습니다.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
+              <Link
+                href="/wallpaper"
+                className="inline-flex w-fit items-center gap-2 text-sm text-foreground transition-all duration-300 hover:gap-3 hover:opacity-60"
+              >
+                도배지 안내
+                <span aria-hidden>→</span>
+              </Link>
+              <Link
+                href="/wallpaper/preview"
+                className="inline-flex w-fit items-center gap-2 text-sm text-foreground transition-all duration-300 hover:gap-3 hover:opacity-60"
+              >
+                미리보기
+                <span aria-hidden>→</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -73,7 +114,7 @@ export default function HomePage() {
               href="/portfolio"
               className="text-sm text-foreground transition-all duration-300 hover:opacity-60"
             >
-              전체 보기 →
+              포트폴리오 →
             </Link>
           </div>
 
@@ -160,7 +201,7 @@ export default function HomePage() {
             href="/contact"
             className="relative inline-flex h-11 items-center bg-foreground px-5 text-sm text-white transition-all duration-300 hover:-translate-y-0.5 hover:opacity-85"
           >
-            문의하기
+            연락하기
           </Link>
         </div>
       </section>

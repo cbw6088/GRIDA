@@ -51,7 +51,7 @@ export function SiteFooter() {
             </a>
           </p>
         </div>
-        <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted" aria-label="푸터 메뉴">
+        <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted" aria-label="주요 페이지">
           {siteConfig.nav.map((item) => (
             <Link
               key={item.href}

@@ -8,6 +8,24 @@ function toInternationalPhone(phoneTel: string) {
   return phoneTel;
 }
 
+const mainPages = siteConfig.nav.map((item, index) => {
+  const url = new URL(item.href, siteConfig.url).href;
+
+  return {
+    "@type": "ListItem",
+    position: index + 1,
+    name: item.label,
+    item: {
+      "@type": "WebPage",
+      "@id": `${url}#webpage`,
+      name: item.label,
+      url,
+      inLanguage: "ko-KR",
+      isPartOf: { "@id": `${siteConfig.url}/#website` },
+    },
+  };
+});
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -20,6 +38,15 @@ const jsonLd = {
       inLanguage: "ko-KR",
       description: siteConfig.description,
       publisher: { "@id": `${siteConfig.url}/#business` },
+      hasPart: mainPages.map((page) => ({ "@id": page.item["@id"] })),
+    },
+    {
+      "@type": "ItemList",
+      "@id": `${siteConfig.url}/#main-pages`,
+      name: "주요 페이지",
+      itemListOrder: "https://schema.org/ItemListOrderAscending",
+      numberOfItems: mainPages.length,
+      itemListElement: mainPages,
     },
     {
       "@type": "HomeAndConstructionBusiness",

@@ -65,7 +65,7 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="주 메뉴">
+        <nav className="hidden items-center gap-8 md:flex" aria-label="주요 페이지">
           {siteConfig.nav.map((item) => (
             <Link
               key={item.href}
