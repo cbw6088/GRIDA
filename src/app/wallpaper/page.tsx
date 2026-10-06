@@ -43,7 +43,7 @@ export default function WallpaperPage() {
           벽지부터 알아보기
         </h1>
         <div className="mt-6 h-px w-12 bg-foreground" />
-        <p className="mt-6 max-w-2xl text-pretty break-keep text-base leading-8 text-muted sm:text-lg">
+        <p className="mt-6 max-w-3xl text-pretty break-keep text-base leading-8 text-muted sm:text-lg">
           도배지는 벽을 덮는 재료를 넘어, 공간의 분위기와 관리 방식을 정하는
           선택입니다. 현장에서 가장 많이 상담하는 종류를 먼저 정리해 두었습니다.
           고민이 남으시면 공간 용도에 맞춰 함께 골라 드립니다.

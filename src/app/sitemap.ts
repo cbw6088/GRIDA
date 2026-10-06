@@ -4,7 +4,9 @@ import { siteConfig } from "@/lib/site";
 
 const staticPaths: { path: string; priority: number }[] = [
   { path: "/", priority: 1 },
-  ...siteConfig.nav.map((item) => ({ path: item.href, priority: 0.9 })),
+  ...siteConfig.nav
+    .filter((item) => item.href !== "/")
+    .map((item) => ({ path: item.href, priority: 0.9 })),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

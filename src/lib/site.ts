@@ -14,6 +14,7 @@ export const siteConfig = {
     area: "서울 / 경기",
   },
   nav: [
+    { href: "/", label: "홈", labelEn: "Home" },
     { href: "/introduction", label: "소개", labelEn: "Introduction" },
     { href: "/wallpaper", label: "도배지 안내", labelEn: "Wallpaper" },
     { href: "/wallpaper/preview", label: "미리보기", labelEn: "Preview" },
