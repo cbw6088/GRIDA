@@ -14,27 +14,31 @@ export const metadata: Metadata = pageMetadata({
 
 export default function WallpaperPreviewPage() {
   return (
-    <main className="px-5 pb-24 pt-44 sm:px-8 md:pb-32 md:pt-48">
-      <div className="mx-auto w-full max-w-6xl">
-        <p className="text-sm tracking-[0.22em] text-muted">미리보기</p>
-        <h1 className="mt-4 max-w-2xl text-4xl font-medium tracking-tight text-foreground sm:text-5xl">
-          벽에 입혀 보기
-        </h1>
-        <div className="mt-6 h-px w-12 bg-foreground" />
-        <p className="mt-6 max-w-2xl text-pretty break-keep text-base leading-8 text-muted sm:text-lg">
-          예시 거실입니다. 합지 소폭·광폭과 실크를 바꿔 보고, 페인트·회벽·패브릭
-          질감과 색을 입혀 보세요. 정면 벽과 천장도 따로 고를 수 있습니다. 합지 이음은
-          소폭 530mm, 광폭 930mm이고, 실크는 이음이 보이지 않습니다.
-        </p>
-        <p className="mt-4 max-w-2xl text-pretty break-keep text-sm leading-6 text-foreground">
-          {previewDisclaimer}
-        </p>
+    <main className="px-5 pb-24 pt-28 sm:px-8 md:pb-32 md:pt-48">
+      <div className="mx-auto flex w-full max-w-6xl flex-col">
+        <div>
+          <p className="text-sm tracking-[0.22em] text-muted">미리보기</p>
+          <h1 className="mt-4 max-w-2xl text-4xl font-medium tracking-tight text-foreground sm:text-5xl">
+            벽에 입혀 보기
+          </h1>
+          <div className="mt-6 h-px w-12 bg-foreground" />
+        </div>
+        <div className="order-2 mt-10 max-w-2xl lg:order-none lg:mt-6">
+          <p className="text-pretty break-keep text-base leading-8 text-muted sm:text-lg">
+            예시 거실입니다. 합지 소폭·광폭과 실크를 바꿔 보고, 페인트·회벽·패브릭
+            질감과 색을 입혀 보세요. 정면 벽과 천장도 따로 고를 수 있습니다. 합지 이음은
+            소폭 530mm, 광폭 930mm이고, 실크는 이음이 보이지 않습니다.
+          </p>
+          <p className="mt-4 text-pretty break-keep text-sm leading-6 text-foreground">
+            {previewDisclaimer}
+          </p>
+        </div>
 
-        <div className="mt-12">
+        <div className="order-1 mt-8 lg:order-none lg:mt-12">
           <WallpaperPreview />
         </div>
 
-        <p className="mt-10 text-sm text-muted">
+        <p className="order-3 mt-10 text-sm text-muted">
           <Link href="/wallpaper" className="transition-colors hover:text-foreground">
             도배지 안내로 돌아가기
           </Link>
