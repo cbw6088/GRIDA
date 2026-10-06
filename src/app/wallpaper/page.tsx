@@ -49,6 +49,13 @@ export default function WallpaperPage() {
           고민이 남으시면 공간 용도에 맞춰 함께 골라 드립니다.
         </p>
 
+        <Link
+          href="/wallpaper/preview"
+          className="mt-8 inline-flex h-11 items-center bg-foreground px-5 text-sm text-white transition-opacity hover:opacity-80"
+        >
+          예시 공간에서 미리 보기
+        </Link>
+
         <div className="mt-10 flex flex-wrap gap-2">
           {wallpaperGuides.map((item) => (
             <a

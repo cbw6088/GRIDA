@@ -6,6 +6,7 @@ const staticPaths = [
   { path: "/", priority: 1 },
   { path: "/introduction", priority: 0.8 },
   { path: "/wallpaper", priority: 0.8 },
+  { path: "/wallpaper/preview", priority: 0.7 },
   { path: "/portfolio", priority: 0.9 },
   { path: "/contact", priority: 0.6 },
 ] as const;

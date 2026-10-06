@@ -7,7 +7,18 @@ import { useEffect, useState } from "react";
 import { siteConfig } from "@/lib/site";
 
 function isActive(pathname: string, href: string) {
-  return href === "/" ? pathname === "/" : pathname.startsWith(href);
+  if (href === "/") return pathname === "/";
+  if (pathname === href) return true;
+  if (!pathname.startsWith(`${href}/`)) return false;
+
+  const moreSpecific = siteConfig.nav.some(
+    (item) =>
+      item.href !== href &&
+      item.href.startsWith(`${href}/`) &&
+      (pathname === item.href || pathname.startsWith(`${item.href}/`)),
+  );
+
+  return !moreSpecific;
 }
 
 export function SiteHeader() {
