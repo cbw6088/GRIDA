@@ -8,10 +8,12 @@ import {
   defaultPreviewSelection,
   getPreviewFinish,
   getPreviewGrain,
+  getPreviewSpace,
   previewColors,
   previewFinishes,
   previewDisclaimer,
   previewGrains,
+  previewSpaces,
   type WallpaperPreviewSelection,
 } from "@/lib/wallpaper-preview";
 
@@ -40,6 +42,7 @@ export function WallpaperPreview() {
     defaultPreviewSelection,
   );
   const [resetSignal, setResetSignal] = useState(0);
+  const space = getPreviewSpace(selection.spaceId);
   const finish = getPreviewFinish(selection.finishId);
   const grain = getPreviewGrain(selection.grainId);
   const summary = useMemo(() => describeSelection(selection), [selection]);
@@ -56,7 +59,11 @@ export function WallpaperPreview() {
           aria-label={summary}
         >
           <div className="absolute inset-0 touch-none">
-            <WallpaperRoom selection={selection} resetSignal={resetSignal} />
+            <WallpaperRoom
+              key={selection.spaceId}
+              selection={selection}
+              resetSignal={resetSignal}
+            />
           </div>
           <p className="pointer-events-none absolute bottom-3 left-3 text-xs tracking-wide text-foreground/70">
             <span className="lg:hidden">한 손가락으로 둘러보기 · 두 손가락으로 확대</span>
@@ -71,6 +78,27 @@ export function WallpaperPreview() {
         onSubmit={(event) => event.preventDefault()}
       >
         <div className="lg:min-h-0 lg:flex-1 lg:overflow-y-auto lg:overscroll-contain">
+          <SettingSection title="공간" value={space.name}>
+            <div className="grid grid-cols-2 gap-2">
+              {previewSpaces.map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  aria-pressed={selection.spaceId === item.id}
+                  onClick={() =>
+                    setSelection((current) => ({
+                      ...current,
+                      spaceId: item.id,
+                    }))
+                  }
+                  className={`${choiceClass(selection.spaceId === item.id)} h-10`}
+                >
+                  {item.name}
+                </button>
+              ))}
+            </div>
+          </SettingSection>
+
           <SettingSection title="벽지" value={finish.name}>
             <div className="grid grid-cols-3 gap-2">
               {previewFinishes.map((item) => (
@@ -316,13 +344,14 @@ function choiceClass(selected: boolean) {
 }
 
 function describeSelection(selection: WallpaperPreviewSelection) {
+  const space = getPreviewSpace(selection.spaceId);
   const finish = getPreviewFinish(selection.finishId);
   const grain = getPreviewGrain(selection.grainId);
   const color =
     previewColors.find((item) => item.value === selection.color)?.name ?? "선택 색";
   const accent = colorName(selection.accent === "color" ? selection.accentColor : "");
   const ceiling = colorName(selection.ceiling === "color" ? selection.ceilingColor : "");
-  return `${finish.name} · ${grain.name} · ${color} · 정면 ${accent || "같은 벽지"} · 천장 ${ceiling || "벽과 같음"}`;
+  return `${space.name} · ${finish.name} · ${grain.name} · ${color} · 정면 ${accent || "같은 벽지"} · 천장 ${ceiling || "벽과 같음"}`;
 }
 
 function colorName(value: string) {

@@ -74,13 +74,22 @@ export const ceilingModes = [
   { id: "color", name: "색 고르기" },
 ] as const;
 
+export const previewSpaces = [
+  { id: "villa", name: "빌라" },
+  { id: "apartment", name: "아파트" },
+  { id: "studio", name: "원룸" },
+  { id: "office", name: "사무실" },
+] as const;
+
 export type PreviewFinishId = (typeof previewFinishes)[number]["id"];
 export type PreviewGrainId = (typeof previewGrains)[number]["id"];
 export type AccentModeId = (typeof accentModes)[number]["id"];
 export type CeilingModeId = (typeof ceilingModes)[number]["id"];
+export type PreviewSpaceId = (typeof previewSpaces)[number]["id"];
 export type SeamKind = (typeof previewFinishes)[number]["seam"];
 
 export type WallpaperPreviewSelection = {
+  spaceId: PreviewSpaceId;
   finishId: PreviewFinishId;
   grainId: PreviewGrainId;
   color: string;
@@ -91,6 +100,7 @@ export type WallpaperPreviewSelection = {
 };
 
 export const defaultPreviewSelection: WallpaperPreviewSelection = {
+  spaceId: "villa",
   finishId: "hapji-wide",
   grainId: "paint",
   color: "#f4eee4",
@@ -106,4 +116,8 @@ export function getPreviewFinish(id: PreviewFinishId) {
 
 export function getPreviewGrain(id: PreviewGrainId) {
   return previewGrains.find((item) => item.id === id) ?? previewGrains[0];
+}
+
+export function getPreviewSpace(id: PreviewSpaceId) {
+  return previewSpaces.find((item) => item.id === id) ?? previewSpaces[0];
 }
