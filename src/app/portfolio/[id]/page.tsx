@@ -3,10 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PortfolioProjectGallery } from "@/components/portfolio-project-gallery";
 import {
+  formatWallpaperDetail,
   getCategoryLabel,
   getProjectById,
+  getProjectDetailFacts,
   getProjectHref,
-  getWallpaperGuideHref,
   parseProjectId,
   portfolioProjects,
 } from "@/lib/portfolio";
@@ -46,7 +47,9 @@ export async function generateMetadata({
     description: [
       project.location,
       categoryLabel,
-      project.wallpaper,
+      formatWallpaperDetail(project),
+      project.details?.area,
+      project.details?.note,
       "도배 시공 사례입니다.",
       "시공 전후 사진으로 인테리어 마감을 확인하세요.",
     ]
@@ -56,7 +59,7 @@ export async function generateMetadata({
       spaceKeyword,
       "도배 시공 사례",
       "인테리어 시공",
-      project.wallpaper,
+      formatWallpaperDetail(project),
       project.location ? `${project.location} 도배` : undefined,
     ].filter((keyword): keyword is string => Boolean(keyword)),
     path: getProjectHref(project),
@@ -90,19 +93,27 @@ export default async function PortfolioDetailPage({
         <h1 className="mt-4 text-4xl font-medium tracking-tight text-foreground sm:text-5xl">
           {project.title}
         </h1>
-        {project.location ? (
-          <p className="mt-3 text-base text-muted">{project.location}</p>
-        ) : null}
-        {project.wallpaper ? (
-          <p className="mt-3 text-base">
-            <span className="text-muted">도배지</span>
-            <Link
-              href={getWallpaperGuideHref(project.wallpaper)}
-              className="ml-3 text-foreground transition-opacity hover:opacity-60"
-            >
-              {project.wallpaper}
-            </Link>
-          </p>
+        <dl className="mt-6 flex flex-col gap-2 text-base">
+          {getProjectDetailFacts(project).map((fact) => (
+            <div key={fact.label} className="flex gap-3">
+              <dt className="shrink-0 text-muted">{fact.label}:</dt>
+              <dd>
+                {fact.href ? (
+                  <Link
+                    href={fact.href}
+                    className="text-foreground transition-opacity hover:opacity-60"
+                  >
+                    {fact.value}
+                  </Link>
+                ) : (
+                  fact.value
+                )}
+              </dd>
+            </div>
+          ))}
+        </dl>
+        {project.details?.note ? (
+          <p className="mt-3 text-sm text-muted">*{project.details.note}</p>
         ) : null}
         <div className="mt-6 h-px w-12 bg-foreground" />
 

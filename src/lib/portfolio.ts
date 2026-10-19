@@ -35,8 +35,10 @@ export type PortfolioProject = {
   title: string;
   category: PortfolioCategoryId;
   location?: string;
-  /** 시공에 사용한 도배지 */
+  /** 시공에 사용한 도배지 종류 */
   wallpaper?: string;
+  /** 제품명·품번 등 상세 표기 */
+  wallpaperProduct?: string;
   summary?: string;
   scope?: string[];
   preview: PortfolioImage;
@@ -46,6 +48,7 @@ export type PortfolioProject = {
     area?: string;
     duration?: string;
     materials?: string[];
+    note?: string;
   };
   featured?: boolean;
 };
@@ -58,6 +61,387 @@ export const portfolioCategories: PortfolioCategory[] = [
 ];
 
 const portfolioProjectEntries: Omit<PortfolioProject, "id">[] = [
+  {
+    title: "은평구 주거공간",
+    category: "residential",
+    location: "은평구",
+    wallpaper: "소폭합지",
+    wallpaperProduct: "660-2",
+    preview: {
+      src: "/portfolio/은평구 26-10-17/안방/시공후_안방1.JPG",
+      alt: "은평구 주거공간 안방 시공 후 내부",
+    },
+    details: {
+      area: "13평",
+      note: "장판 시공 포함",
+    },
+    sections: [
+      {
+        title: "안방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/은평구 26-10-17/안방/시공전_안방1.JPG",
+                alt: "안방 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/은평구 26-10-17/안방/시공후_안방1.JPG",
+                alt: "안방 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "작은방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/은평구 26-10-17/작은방/시공전_작은방1.JPG",
+                alt: "작은방 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/은평구 26-10-17/작은방/시공후_작은방1.JPG",
+                alt: "작은방 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "주방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/은평구 26-10-17/주방/시공전_주방1.JPG",
+                alt: "주방 시공 전 내부",
+              },
+              {
+                src: "/portfolio/은평구 26-10-17/주방/시공전_주방2.JPG",
+                alt: "주방 시공 전 다른 각도",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/은평구 26-10-17/주방/시공후_주방1.JPG",
+                alt: "주방 시공 후 내부",
+              },
+              {
+                src: "/portfolio/은평구 26-10-17/주방/시공후_주방2.JPG",
+                alt: "주방 시공 후 다른 각도",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    featured: true,
+  },
+  {
+    title: "중곡동 상업공간",
+    category: "commercial",
+    location: "광진구 중곡동",
+    wallpaper: "광폭합지",
+    wallpaperProduct: "제일벽지 1986-2",
+    preview: {
+      src: "/portfolio/중곡동 26-10-14,15/사무실/시공후_사무실1.JPG",
+      alt: "중곡동 상업공간 사무실 시공 후 내부",
+    },
+    details: {
+      area: "34평",
+      note: "장판 시공 포함",
+    },
+    sections: [
+      {
+        title: "사무실",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/중곡동 26-10-14,15/사무실/시공전_사무실1.JPG",
+                alt: "사무실 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "초기 작업",
+            images: [
+              {
+                src: "/portfolio/중곡동 26-10-14,15/사무실/벽지제거_사무실1.JPG",
+                alt: "사무실 기존 벽지 제거 후 바탕",
+              },
+              {
+                src: "/portfolio/중곡동 26-10-14,15/사무실/벽지제거_사무실2.JPG",
+                alt: "사무실 기존 벽지 제거 후 다른 각도",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/중곡동 26-10-14,15/사무실/시공후_사무실1.JPG",
+                alt: "사무실 시공 후 내부",
+              },
+              {
+                src: "/portfolio/중곡동 26-10-14,15/사무실/시공후_사무실2.JPG",
+                alt: "사무실 시공 후 다른 각도",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "대표실",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/중곡동 26-10-14,15/대표실/시공전_대표실1.JPG",
+                alt: "대표실 시공 전 내부",
+              },
+              {
+                src: "/portfolio/중곡동 26-10-14,15/대표실/시공전_대표실2.JPG",
+                alt: "대표실 시공 전 다른 각도",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/중곡동 26-10-14,15/대표실/시공후_대표실1.JPG",
+                alt: "대표실 시공 후 내부",
+              },
+              {
+                src: "/portfolio/중곡동 26-10-14,15/대표실/시공후_대표실2.JPG",
+                alt: "대표실 시공 후 다른 각도",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    featured: true,
+  },
+  {
+    title: "오금동 주거공간",
+    category: "residential",
+    location: "송파구 오금동",
+    wallpaper: "실크",
+    wallpaperProduct: "제일벽지 K114-1",
+    preview: {
+      src: "/portfolio/오금동 26-10-9,10/거실/시공후_거실1.JPG",
+      alt: "오금동 주거공간 거실 시공 후 내부",
+    },
+    details: {
+      area: "18평",
+    },
+    sections: [
+      {
+        title: "거실",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/오금동 26-10-9,10/거실/시공전_거실1.JPG",
+                alt: "거실 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "초기 작업",
+            images: [
+              {
+                src: "/portfolio/오금동 26-10-9,10/거실/벽지제거_거실1.JPG",
+                alt: "거실 기존 벽지 제거 후 바탕",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/오금동 26-10-9,10/거실/시공후_거실1.JPG",
+                alt: "거실 시공 후 창가 쪽 내부",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "안방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/오금동 26-10-9,10/안방/시공전_안방1.JPG",
+                alt: "안방 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "초기 작업",
+            images: [
+              {
+                src: "/portfolio/오금동 26-10-9,10/안방/벽지제거_안방1.JPG",
+                alt: "안방 기존 벽지 제거 후 바탕",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/오금동 26-10-9,10/안방/시공후_안방1.JPG",
+                alt: "안방 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "옷방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/오금동 26-10-9,10/옷방/시공전_옷방1.JPG",
+                alt: "옷방 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/오금동 26-10-9,10/옷방/시공후_옷방1.JPG",
+                alt: "옷방 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "작은방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/오금동 26-10-9,10/작은방/시공전_작은방1.JPG",
+                alt: "작은방 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "초기 작업",
+            images: [
+              {
+                src: "/portfolio/오금동 26-10-9,10/작은방/벽지제거_작은방1.JPG",
+                alt: "작은방 기존 벽지 제거 후 바탕",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/오금동 26-10-9,10/작은방/시공후_작은방1.JPG",
+                alt: "작은방 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    featured: true,
+  },
+  {
+    title: "하남 주거공간",
+    category: "residential",
+    location: "하남",
+    wallpaper: "실크",
+    wallpaperProduct: "제일벽지 K114-1",
+    preview: {
+      src: "/portfolio/하남 26-10-8/시공후1.JPG",
+      alt: "하남 주거공간 시공 후 창가 쪽 내부",
+    },
+    sections: [
+      {
+        title: "원룸",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/하남 26-10-8/시공전1.JPG",
+                alt: "원룸 시공 전 창가 쪽 내부",
+              },
+              {
+                src: "/portfolio/하남 26-10-8/시공전2.JPG",
+                alt: "원룸 시공 전 주방과 현관 쪽",
+              },
+            ],
+          },
+          {
+            label: "초기 작업",
+            images: [
+              {
+                src: "/portfolio/하남 26-10-8/벽지제거.JPG",
+                alt: "원룸 기존 벽지 제거 후 바탕",
+              },
+              {
+                src: "/portfolio/하남 26-10-8/기초.JPG",
+                alt: "원룸 초기 작업 중 바탕 처리",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/하남 26-10-8/시공후1.JPG",
+                alt: "원룸 시공 후 창가 쪽 내부",
+              },
+              {
+                src: "/portfolio/하남 26-10-8/시공후2.JPG",
+                alt: "원룸 시공 후 주방과 현관 쪽",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    details: {
+      area: "10평",
+    },
+    featured: true,
+  },
   {
     title: "역삼동 고시텔",
     category: "commercial",
@@ -971,16 +1355,80 @@ export function getFeaturedProjects(limit = 3) {
   return portfolioProjects.filter((project) => project.featured).slice(0, limit);
 }
 
+export function getWallpaperKind(wallpaper?: string) {
+  if (!wallpaper) return undefined;
+  if (wallpaper.includes("광폭합지")) return "광폭합지";
+  if (wallpaper.includes("소폭합지")) return "소폭합지";
+  if (wallpaper.includes("합지")) return "합지";
+  if (wallpaper.includes("실크")) return "실크";
+  if (wallpaper.includes("한지")) return "한지";
+  if (wallpaper.includes("뮤럴")) return "뮤럴";
+  return wallpaper;
+}
+
 export function formatProjectFacts(
   project: Pick<PortfolioProject, "location" | "wallpaper">,
 ) {
-  return [project.location, project.wallpaper].filter(Boolean).join(" · ");
+  return [project.location, getWallpaperKind(project.wallpaper)]
+    .filter(Boolean)
+    .join(" · ");
 }
 
 export function getWallpaperGuideHref(wallpaper?: string) {
   if (wallpaper?.includes("합지")) return "/wallpaper#hapji";
   if (wallpaper?.includes("실크")) return "/wallpaper#silk";
   return "/wallpaper";
+}
+
+const spaceLabels: Record<PortfolioCategoryId, string> = {
+  residential: "주거",
+  commercial: "상업",
+  "new-build": "신축",
+  maintenance: "유지 보수",
+};
+
+export function getSpaceLabel(id: PortfolioCategoryId) {
+  return spaceLabels[id];
+}
+
+export function formatWallpaperDetail(
+  project: Pick<PortfolioProject, "wallpaper" | "wallpaperProduct">,
+) {
+  const kind = getWallpaperKind(project.wallpaper);
+  if (!kind) return undefined;
+  return project.wallpaperProduct ? `${kind} (${project.wallpaperProduct})` : kind;
+}
+
+export type PortfolioDetailFact = {
+  label: string;
+  value: string;
+  href?: string;
+};
+
+export function getProjectDetailFacts(
+  project: Pick<
+    PortfolioProject,
+    "category" | "location" | "wallpaper" | "wallpaperProduct" | "details"
+  >,
+): PortfolioDetailFact[] {
+  const wallpaper = formatWallpaperDetail(project);
+
+  return [
+    project.location
+      ? { label: "위치", value: project.location }
+      : undefined,
+    { label: "공간", value: getSpaceLabel(project.category) },
+    wallpaper
+      ? {
+          label: "벽지",
+          value: wallpaper,
+          href: getWallpaperGuideHref(project.wallpaper),
+        }
+      : undefined,
+    project.details?.area
+      ? { label: "평수", value: project.details.area }
+      : undefined,
+  ].filter((fact): fact is PortfolioDetailFact => Boolean(fact));
 }
 
 export type PortfolioLightboxItem = {

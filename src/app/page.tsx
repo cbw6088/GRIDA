@@ -78,8 +78,7 @@ export default function HomePage() {
           <div className="flex flex-col justify-end">
             <p className="max-w-xl text-pretty break-keep text-base leading-8 text-muted sm:text-[1.05rem]">
               합지, 실크, 한지, 뮤럴처럼 벽지마다 어울리는 공간과 마감이
-              다릅니다. 종류를 비교한 뒤, 예시 거실에 질감과 색을 입혀 볼 수
-              있습니다.
+              다릅니다. 종류를 비교한 뒤 공간에 맞게 골라 보시면 됩니다.
             </p>
             <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
               <Link
@@ -87,13 +86,6 @@ export default function HomePage() {
                 className="inline-flex w-fit items-center gap-2 text-sm text-foreground transition-all duration-300 hover:gap-3 hover:opacity-60"
               >
                 도배지 안내
-                <span aria-hidden>→</span>
-              </Link>
-              <Link
-                href="/wallpaper/preview"
-                className="inline-flex w-fit items-center gap-2 text-sm text-foreground transition-all duration-300 hover:gap-3 hover:opacity-60"
-              >
-                미리보기
                 <span aria-hidden>→</span>
               </Link>
             </div>

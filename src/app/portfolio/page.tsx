@@ -5,7 +5,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "도배 시공 포트폴리오",
   description:
-    "서울 서초·송파 풍납동·이태원 주거 공간과 역삼동 상업 공간·고시텔 도배 시공 사례입니다. 시공 전후 사진으로 인테리어 마감과 도배 시공 결과를 확인하세요.",
+    "서울 서초·송파 오금동·풍납동·이태원·은평구·하남 주거 공간과 광진구 중곡동·역삼동 상업 공간 도배 시공 사례입니다. 시공 전후 사진으로 인테리어 마감과 도배 시공 결과를 확인하세요.",
   keywords: [
     "도배 포트폴리오",
     "도배 시공 사례",
@@ -14,8 +14,12 @@ export const metadata: Metadata = pageMetadata({
     "인테리어 시공 사례",
     "서초 도배",
     "송파 도배",
+    "오금동 도배",
     "풍납동 도배",
     "이태원 도배",
+    "은평구 도배",
+    "하남 도배",
+    "중곡동 도배",
     "역삼 도배",
   ],
   path: "/portfolio",
