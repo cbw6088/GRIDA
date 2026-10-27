@@ -1,6 +1,8 @@
 import { OptimizedImage } from "@/components/optimized-image";
 import Link from "next/link";
+import { BlogCard } from "@/components/blog-card";
 import { HomeBanner } from "@/components/home-banner";
+import { blogPosts } from "@/lib/posts";
 import {
   formatProjectFacts,
   getCategoryLabel,
@@ -10,6 +12,7 @@ import {
 import { siteConfig } from "@/lib/site";
 
 const previewWorks = getFeaturedProjects(3);
+const previewPosts = blogPosts.slice(0, 3);
 
 export default function HomePage() {
   return (
@@ -155,6 +158,36 @@ export default function HomePage() {
                 </li>
               );
             })}
+          </ul>
+        </div>
+      </section>
+
+      <section className="relative border-t border-line px-5 py-24 sm:px-8 md:py-28">
+        <div className="mx-auto w-full max-w-6xl">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-sm tracking-[0.22em] text-muted">블로그</p>
+              <h2 className="mt-4 text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
+                도배 전에 읽어 보기
+              </h2>
+            </div>
+            <Link
+              href="/blog"
+              className="text-sm text-foreground transition-all duration-300 hover:opacity-60"
+            >
+              블로그 →
+            </Link>
+          </div>
+
+          <ul className="mt-12 grid gap-x-8 gap-y-14 md:grid-cols-3">
+            {previewPosts.map((post) => (
+              <BlogCard
+                key={post.slug}
+                post={post}
+                heading="h3"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            ))}
           </ul>
         </div>
       </section>

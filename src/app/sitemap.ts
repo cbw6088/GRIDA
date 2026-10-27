@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { blogPosts, getPostHref } from "@/lib/posts";
 import { portfolioProjects } from "@/lib/portfolio";
 import { siteConfig } from "@/lib/site";
 
@@ -22,5 +23,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }));
 
-  return [...pages, ...projects];
+  const posts = blogPosts.map((post) => ({
+    url: new URL(getPostHref(post), siteConfig.url).href,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...pages, ...posts, ...projects];
 }

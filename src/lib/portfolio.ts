@@ -65,7 +65,7 @@ const portfolioProjectEntries: Omit<PortfolioProject, "id">[] = [
     title: "도봉구 주거공간",
     category: "residential",
     location: "도봉구",
-    wallpaper: "장폭합지",
+    wallpaper: "광폭합지",
     wallpaperProduct: "제일벽지 6965-2",
     preview: {
       src: "/portfolio/도봉구 26-10-26/안방/시공후_안방1.JPG",
@@ -178,7 +178,7 @@ const portfolioProjectEntries: Omit<PortfolioProject, "id">[] = [
     title: "노원구 주거공간",
     category: "residential",
     location: "노원구",
-    wallpaper: "장폭합지",
+    wallpaper: "광폭합지",
     wallpaperProduct: "제일벽지 6984-4",
     preview: {
       src: "/portfolio/노원구 26-10-22/거실/시공후_거실.JPG",
@@ -241,7 +241,7 @@ const portfolioProjectEntries: Omit<PortfolioProject, "id">[] = [
     title: "구의동 주거공간",
     category: "residential",
     location: "광진구 구의동",
-    wallpaper: "장폭합지",
+    wallpaper: "광폭합지",
     preview: {
       src: "/portfolio/구의동 26-10-21/안방/시공후_안방1.JPG",
       alt: "구의동 주거공간 안방 시공 후 내부",
@@ -1649,10 +1649,13 @@ export function getFeaturedProjects(limit = 3) {
 
 export function getWallpaperKind(wallpaper?: string) {
   if (!wallpaper) return undefined;
-  if (wallpaper.includes("장폭합지") || wallpaper.includes("장폭")) {
-    return "장폭합지";
+  if (
+    wallpaper.includes("광폭합지") ||
+    wallpaper.includes("장폭합지") ||
+    wallpaper.includes("장폭")
+  ) {
+    return "광폭합지";
   }
-  if (wallpaper.includes("광폭합지")) return "광폭합지";
   if (wallpaper.includes("소폭합지")) return "소폭합지";
   if (wallpaper.includes("합지")) return "합지";
   if (wallpaper.includes("실크")) return "실크";

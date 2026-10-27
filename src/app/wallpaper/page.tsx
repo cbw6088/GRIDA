@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
 import { OptimizedImage } from "@/components/optimized-image";
 import Link from "next/link";
+import { getBlogPostsBySlug, getPostHref } from "@/lib/posts";
 import { pageMetadata } from "@/lib/seo";
 import { wallpaperExtras, wallpaperGuides } from "@/lib/wallpapers";
+
+const wallpaperReads = getBlogPostsBySlug([
+  "hapji-vs-silk",
+  "wide-vs-narrow-hapji",
+  "wallpaper-cost",
+  "wallpaper-aftercare",
+]);
 
 export const metadata: Metadata = pageMetadata({
   title: "도배지 안내",
@@ -173,6 +181,29 @@ export default function WallpaperPage() {
               <p className="relative mt-3 text-sm leading-7 text-muted">
                 {item.text}
               </p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="relative mx-auto mt-20 w-full max-w-6xl border-t border-line pt-16 md:mt-28">
+        <p className="text-sm tracking-[0.22em] text-muted">블로그</p>
+        <h2 className="mt-4 text-3xl font-medium tracking-tight text-foreground">
+          고르기 전에 더 보면 좋은 글
+        </h2>
+        <ul className="mt-8 grid gap-4 md:grid-cols-2">
+          {wallpaperReads.map((post) => (
+            <li key={post.slug}>
+              <Link
+                href={getPostHref(post)}
+                className="flex h-full flex-col border border-line p-6 transition-colors hover:border-foreground/30"
+              >
+                <p className="text-xs tracking-[0.16em] text-muted">{post.category}</p>
+                <p className="mt-3 text-lg font-medium text-foreground">{post.title}</p>
+                <p className="mt-2 text-pretty break-keep text-sm leading-7 text-muted">
+                  {post.excerpt}
+                </p>
+              </Link>
             </li>
           ))}
         </ul>
