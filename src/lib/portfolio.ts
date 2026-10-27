@@ -62,6 +62,296 @@ export const portfolioCategories: PortfolioCategory[] = [
 
 const portfolioProjectEntries: Omit<PortfolioProject, "id">[] = [
   {
+    title: "도봉구 주거공간",
+    category: "residential",
+    location: "도봉구",
+    wallpaper: "6965-2",
+    preview: {
+      src: "/portfolio/도봉구 26-10-26/안방/시공후_안방1.JPG",
+      alt: "도봉구 주거공간 안방 시공 후 내부",
+    },
+    details: {
+      area: "12평",
+    },
+    sections: [
+      {
+        title: "안방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/도봉구 26-10-26/안방/시공전_안방1.JPG",
+                alt: "안방 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/도봉구 26-10-26/안방/시공후_안방1.JPG",
+                alt: "안방 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "작은방 1",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/도봉구 26-10-26/작은방1/시공전_작은방1.JPG",
+                alt: "작은방 1 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/도봉구 26-10-26/작은방1/시공후_작은방1.JPG",
+                alt: "작은방 1 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "작은방 2",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/도봉구 26-10-26/작은방2/시공전_작은방2.JPG",
+                alt: "작은방 2 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/도봉구 26-10-26/작은방2/시공후_작은방2.JPG",
+                alt: "작은방 2 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "주방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/도봉구 26-10-26/주방/시공전_주방1.JPG",
+                alt: "주방 시공 전 내부",
+              },
+              {
+                src: "/portfolio/도봉구 26-10-26/주방/시공전_주방2.JPG",
+                alt: "주방 시공 전 다른 각도",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/도봉구 26-10-26/주방/시공후_주방1.JPG",
+                alt: "주방 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    featured: true,
+  },
+  {
+    title: "노원구 주거공간",
+    category: "residential",
+    location: "노원구",
+    wallpaper: "장폭",
+    wallpaperProduct: "6984-4",
+    preview: {
+      src: "/portfolio/노원구 26-10-22/거실/시공후_거실.JPG",
+      alt: "노원구 주거공간 거실 시공 후 내부",
+    },
+    details: {
+      area: "13평",
+    },
+    sections: [
+      {
+        title: "거실",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/노원구 26-10-22/거실/시공전_거실1.JPG",
+                alt: "거실 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/노원구 26-10-22/거실/시공후_거실.JPG",
+                alt: "거실 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "안방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/노원구 26-10-22/안방/시공전_안방1.JPG",
+                alt: "안방 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/노원구 26-10-22/안방/시공후_안방.JPG",
+                alt: "안방 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    featured: true,
+  },
+  {
+    title: "구의동 주거공간",
+    category: "residential",
+    location: "광진구 구의동",
+    preview: {
+      src: "/portfolio/구의동 26-10-21/안방/시공후_안방1.JPG",
+      alt: "구의동 주거공간 안방 시공 후 내부",
+    },
+    details: {
+      area: "15평",
+    },
+    sections: [
+      {
+        title: "거실",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/구의동 26-10-21/거실/시공전_거실1.JPG",
+                alt: "거실 시공 전 내부",
+              },
+              {
+                src: "/portfolio/구의동 26-10-21/거실/시공전_거실2.JPG",
+                alt: "거실 시공 전 다른 각도",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/구의동 26-10-21/거실/시공후_거실1.JPG",
+                alt: "거실 시공 후 내부",
+              },
+              {
+                src: "/portfolio/구의동 26-10-21/거실/시공후_거실2.JPG",
+                alt: "거실 시공 후 다른 각도",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "안방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/구의동 26-10-21/안방/시공전_안방1.JPG",
+                alt: "안방 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/구의동 26-10-21/안방/시공후_안방1.JPG",
+                alt: "안방 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "작은방 1",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/구의동 26-10-21/작은방1/시공전_작은방1.JPG",
+                alt: "작은방 1 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/구의동 26-10-21/작은방1/시공후_작은방1.JPG",
+                alt: "작은방 1 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "작은방 2",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/구의동 26-10-21/작은방2/시공전_작은방2.JPG",
+                alt: "작은방 2 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/구의동 26-10-21/작은방2/시공후_작은방2.JPG",
+                alt: "작은방 2 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    featured: true,
+  },
+  {
     title: "은평구 주거공간",
     category: "residential",
     location: "은평구",
@@ -1359,6 +1649,7 @@ export function getWallpaperKind(wallpaper?: string) {
   if (!wallpaper) return undefined;
   if (wallpaper.includes("광폭합지")) return "광폭합지";
   if (wallpaper.includes("소폭합지")) return "소폭합지";
+  if (wallpaper.includes("장폭")) return "장폭";
   if (wallpaper.includes("합지")) return "합지";
   if (wallpaper.includes("실크")) return "실크";
   if (wallpaper.includes("한지")) return "한지";
@@ -1375,7 +1666,9 @@ export function formatProjectFacts(
 }
 
 export function getWallpaperGuideHref(wallpaper?: string) {
-  if (wallpaper?.includes("합지")) return "/wallpaper#hapji";
+  if (wallpaper?.includes("합지") || wallpaper?.includes("장폭")) {
+    return "/wallpaper#hapji";
+  }
   if (wallpaper?.includes("실크")) return "/wallpaper#silk";
   return "/wallpaper";
 }
