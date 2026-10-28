@@ -100,7 +100,7 @@ export default function HomePage() {
         <div className="mx-auto w-full max-w-6xl">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-sm tracking-[0.22em] text-muted">포트폴리오</p>
+              <p className="text-sm tracking-[0.22em] text-muted">시공 사례</p>
               <h2 className="mt-4 text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
                 최근 시공
               </h2>
@@ -109,7 +109,7 @@ export default function HomePage() {
               href="/portfolio"
               className="text-sm text-foreground transition-all duration-300 hover:opacity-60"
             >
-              포트폴리오 →
+              시공 사례 →
             </Link>
           </div>
 

@@ -19,6 +19,6 @@ export const siteConfig = {
     { href: "/wallpaper", label: "도배지 안내", labelEn: "Wallpaper" },
     { href: "/portfolio", label: "시공 사례", labelEn: "Portfolio" },
     { href: "/blog", label: "블로그", labelEn: "Blog" },
-    { href: "/contact", label: "연락하기", labelEn: "Contact us" },
+    { href: "/contact", label: "문의하기", labelEn: "Contact us" },
   ],
 } as const;

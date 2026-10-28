@@ -15,7 +15,7 @@ export const homeBanners: HomeBanner[] = [
     kicker: "견적 상담",
     title: "무료 견적 요청하기",
     description: "공간에 맞는 도배 견적을 부담 없이 받아 보세요.",
-    href: "/contact",
+    href: "/contact#quote",
     cta: "견적 문의",
     image: "/banners/wallpaper-roll.jpg",
     imageAlt: "파스텔 톤 도배지가 롤러처럼 풀리는 모습",

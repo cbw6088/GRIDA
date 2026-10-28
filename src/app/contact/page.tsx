@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactFaqList } from "@/components/contact-faq-list";
 import { CornerMark } from "@/components/corner-mark";
+import { QuoteRequestForm } from "@/components/quote-request-form";
 import { RevealOnScroll } from "@/components/reveal-on-scroll";
 import { pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
@@ -23,10 +24,11 @@ export const metadata: Metadata = pageMetadata({
 });
 
 const prepareItems = [
-  "시공하려는 공간 (거실, 방, 상가 등)",
-  "대략적인 범위나 방 개수",
+  "시공하려는 공간 (아파트, 오피스텔, 상가 등)",
+  "대략적인 평수",
   "원하시는 일정 (급하신 정도)",
-  "관심 있는 벽지 (합지 / 실크 등)",
+  "시공 위치 (시, 구)",
+  "관심 있는 벽지 (합지, 실크, 합지+실크)",
 ];
 
 const faqs = [
@@ -88,13 +90,19 @@ export default function ContactPage() {
           </h1>
           <div className="animate-draw-line mt-6 h-px w-16 bg-foreground/80" />
           <p className="animate-fade-up-2 mt-6 max-w-xl text-pretty break-keep text-base leading-8 text-muted sm:text-lg">
-            견적과 일정 상담이 필요하시면 편하게 연락해 주세요. 전화·문자·메일을
-            남겨 주시면 확인 후 연락드립니다.
+            견적과 일정 상담이 필요하시면 편하게 연락해 주세요. 견적 요청을
+            남겨 주시거나, 전화·문자·메일로 연락해 주셔도 됩니다.
           </p>
           <div className="animate-fade-up-3 mt-10 flex flex-wrap gap-3">
             <a
-              href={`tel:${phoneTel}`}
+              href="#quote"
               className="inline-flex h-11 items-center bg-foreground px-5 text-sm text-white transition-all duration-300 hover:-translate-y-0.5 hover:opacity-85"
+            >
+              견적 요청
+            </a>
+            <a
+              href={`tel:${phoneTel}`}
+              className="inline-flex h-11 items-center border border-line bg-white/60 px-5 text-sm text-foreground backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-foreground/40"
             >
               전화하기
             </a>
@@ -218,6 +226,33 @@ export default function ContactPage() {
         </div>
       </section>
 
+      <section
+        id="quote"
+        className="relative scroll-mt-24 overflow-hidden border-b border-line px-5 py-24 sm:px-8 md:py-28"
+      >
+        <div
+          className="animate-soft-pulse pointer-events-none absolute -right-10 top-16 h-56 w-56 rounded-full blur-3xl"
+          style={{ background: "rgba(var(--shape-sand), 0.2)" }}
+          aria-hidden
+        />
+
+        <div className="relative mx-auto grid w-full max-w-6xl gap-12 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:items-start md:gap-16">
+          <RevealOnScroll>
+            <p className="text-sm tracking-[0.22em] text-muted">견적</p>
+            <h2 className="mt-4 text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
+              견적 요청
+            </h2>
+            <p className="mt-4 max-w-md text-pretty break-keep leading-7 text-muted">
+              공간과 연락처를 남겨 주시면 확인 후 연락드립니다. 면적이나 벽지
+              종류를 정확히 모르셔도 괜찮습니다.
+            </p>
+          </RevealOnScroll>
+          <RevealOnScroll delay={0.08}>
+            <QuoteRequestForm />
+          </RevealOnScroll>
+        </div>
+      </section>
+
       <section className="relative overflow-hidden border-b border-line px-5 py-24 sm:px-8 md:py-28">
         <div
           className="animate-soft-pulse pointer-events-none absolute right-0 top-10 h-48 w-48 rounded-full blur-3xl"
@@ -272,8 +307,14 @@ export default function ContactPage() {
           </div>
           <div className="flex flex-wrap gap-3">
             <a
-              href={`tel:${phoneTel}`}
+              href="#quote"
               className="relative inline-flex h-11 items-center bg-foreground px-5 text-sm text-white transition-all duration-300 hover:-translate-y-0.5 hover:opacity-85"
+            >
+              견적 요청
+            </a>
+            <a
+              href={`tel:${phoneTel}`}
+              className="relative inline-flex h-11 items-center border border-line px-5 text-sm text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-foreground/40"
             >
               {phoneDisplay}
             </a>
