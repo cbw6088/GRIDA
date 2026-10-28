@@ -159,7 +159,7 @@ export function QuoteRequestForm() {
         <fieldset className="sm:col-span-2">
           <legend className="text-sm text-foreground">관심 벽지</legend>
           <input type="hidden" name="wallpaper" value={values.wallpaper} />
-          <div className="mt-2 flex flex-wrap gap-2 sm:flex-nowrap">
+          <div className="mt-2 flex flex-wrap gap-2">
             {wallpaperOptions.map((option) => {
               const selected = values.wallpaper === option;
               return (
@@ -170,7 +170,7 @@ export function QuoteRequestForm() {
                   onClick={() =>
                     setValues((current) => ({ ...current, wallpaper: option }))
                   }
-                  className={`inline-flex h-11 items-center border px-3 text-sm ${
+                  className={`inline-flex h-11 shrink-0 items-center whitespace-nowrap border px-3 text-sm ${
                     selected
                       ? "border-foreground bg-foreground text-white"
                       : "border-line text-foreground"
