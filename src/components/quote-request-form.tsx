@@ -33,7 +33,7 @@ const initialQuoteFormState: QuoteFormState = {
 const fieldClassName =
   "mt-2 w-full border border-line bg-white px-3 text-sm text-foreground outline-none transition-colors duration-300 focus:border-foreground";
 
-const wallpaperOptions = ["합지", "실크", "합지+실크", "상담 후 결정"] as const;
+const wallpaperOptions = ["소폭합지", "광폭합지", "실크", "합지+실크", "상담 후 결정"] as const;
 
 export function QuoteRequestForm() {
   const [state, formAction, pending] = useActionState(

@@ -6,7 +6,7 @@ import {
 } from "@/lib/quote-schedule";
 import { siteConfig } from "@/lib/site";
 
-const wallpaperOptions = ["합지", "실크", "합지+실크", "상담 후 결정"] as const;
+const wallpaperOptions = ["소폭합지", "광폭합지", "실크", "합지+실크", "상담 후 결정"] as const;
 
 type WallpaperOption = (typeof wallpaperOptions)[number];
 
