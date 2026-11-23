@@ -62,6 +62,310 @@ export const portfolioCategories: PortfolioCategory[] = [
 
 const portfolioProjectEntries: Omit<PortfolioProject, "id">[] = [
   {
+    title: "강동구 주거공간",
+    category: "residential",
+    location: "강동구",
+    wallpaper: "소폭합지",
+    preview: {
+      src: "/portfolio/강동구 26-11-21/안방/시공후_안방.JPG",
+      alt: "강동구 주거공간 안방 시공 후 내부",
+    },
+    details: {
+      area: "9평",
+      note: "장판 시공 포함",
+    },
+    sections: [
+      {
+        title: "안방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/강동구 26-11-21/안방/시공전_안방.JPG",
+                alt: "안방 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/강동구 26-11-21/안방/시공후_안방.JPG",
+                alt: "안방 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "작은방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/강동구 26-11-21/작은방/시공전_작은방.JPG",
+                alt: "작은방 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/강동구 26-11-21/작은방/시공후_작은방.JPG",
+                alt: "작은방 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "주방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/강동구 26-11-21/주방/시공전_주방.JPG",
+                alt: "주방 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/강동구 26-11-21/주방/시공후_주방.JPG",
+                alt: "주방 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    featured: true,
+  },
+  {
+    title: "강남구 주거공간",
+    category: "residential",
+    location: "강남구",
+    wallpaper: "광폭합지",
+    wallpaperProduct: "제일벽지 6961-3",
+    preview: {
+      src: "/portfolio/강남구 26-11-20/안방/시공후_안방1.JPG",
+      alt: "강남구 주거공간 안방 시공 후 내부",
+    },
+    details: {
+      area: "12평",
+    },
+    sections: [
+      {
+        title: "안방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/강남구 26-11-20/안방/시공전_안방1.JPG",
+                alt: "안방 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/강남구 26-11-20/안방/시공후_안방1.JPG",
+                alt: "안방 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "작은방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/강남구 26-11-20/작은방/시공전_작은방1.JPG",
+                alt: "작은방 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/강남구 26-11-20/작은방/시공후_작은방1.JPG",
+                alt: "작은방 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "주방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/강남구 26-11-20/주방/시공전_주방1.JPG",
+                alt: "주방 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/강남구 26-11-20/주방/시공후_주방1.JPG",
+                alt: "주방 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    featured: true,
+  },
+  {
+    title: "서초구 주거공간",
+    category: "residential",
+    location: "서초구",
+    wallpaper: "광폭합지",
+    wallpaperProduct: "제일벽지 6984-1",
+    preview: {
+      src: "/portfolio/서초구 26-11-18/거실/시공후_거실1.JPG",
+      alt: "서초구 주거공간 거실 시공 후 내부",
+    },
+    details: {
+      area: "23평",
+    },
+    sections: [
+      {
+        title: "거실",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/서초구 26-11-18/거실/시공전_거실1.JPG",
+                alt: "거실 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/서초구 26-11-18/거실/시공후_거실1.JPG",
+                alt: "거실 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "안방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/서초구 26-11-18/안방/시공전_안방1.JPG",
+                alt: "안방 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/서초구 26-11-18/안방/시공후_안방1.JPG",
+                alt: "안방 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "작은방 1",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/서초구 26-11-18/작은방1/시공전_작은방1.JPG",
+                alt: "작은방 1 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/서초구 26-11-18/작은방1/시공후_작은방1.JPG",
+                alt: "작은방 1 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "작은방 2",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/서초구 26-11-18/작은방2/시공전_작은방2.JPG",
+                alt: "작은방 2 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/서초구 26-11-18/작은방2/시공후_작은방2.JPG",
+                alt: "작은방 2 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "주방",
+        phases: [
+          {
+            label: "시공 전",
+            images: [
+              {
+                src: "/portfolio/서초구 26-11-18/주방/시공전_주방1.JPG",
+                alt: "주방 시공 전 내부",
+              },
+            ],
+          },
+          {
+            label: "시공 후",
+            images: [
+              {
+                src: "/portfolio/서초구 26-11-18/주방/시공후_주방1.JPG",
+                alt: "주방 시공 후 내부",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    featured: true,
+  },
+  {
     title: "도봉구 주거공간",
     category: "residential",
     location: "도봉구",
@@ -1652,7 +1956,8 @@ export function getWallpaperKind(wallpaper?: string) {
   if (
     wallpaper.includes("광폭합지") ||
     wallpaper.includes("장폭합지") ||
-    wallpaper.includes("장폭")
+    wallpaper.includes("장폭") ||
+    wallpaper.includes("광폭")
   ) {
     return "광폭합지";
   }

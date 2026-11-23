@@ -28,8 +28,12 @@ export type BlogPost = {
   blocks: BlogBlock[];
 };
 
-function portfolioHref(title: string) {
-  const project = portfolioProjects.find((item) => item.title === title);
+function portfolioHref(title: string, wallpaper?: string) {
+  const project = portfolioProjects.find(
+    (item) =>
+      item.title === title &&
+      (wallpaper == null || item.wallpaper === wallpaper),
+  );
   if (!project) {
     throw new Error(`포트폴리오를 찾을 수 없습니다: ${title}`);
   }
@@ -221,7 +225,7 @@ export const blogPosts: BlogPost[] = [
           { href: "/blog/hapji-vs-silk", label: "합지와 실크 비교" },
           { href: "/wallpaper#hapji", label: "합지 벽지 안내" },
           { href: portfolioHref("송파구 주거공간"), label: "송파구 광폭합지 시공" },
-          { href: portfolioHref("서초구 주거공간"), label: "서초구 소폭합지 시공" },
+          { href: portfolioHref("서초구 주거공간", "소폭합지"), label: "서초구 소폭합지 시공" },
         ],
       },
     ],
