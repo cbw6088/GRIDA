@@ -6,7 +6,6 @@ import { BlogPostBody } from "@/components/blog-post-body";
 import { OptimizedImage } from "@/components/optimized-image";
 import {
   blogPosts,
-  formatPostDate,
   getBlogPost,
   getPostHref,
   getRelatedPosts,
@@ -49,7 +48,6 @@ export async function generateMetadata({
     openGraph: {
       ...metadata.openGraph,
       type: "article",
-      publishedTime: post.publishedAt,
       images: [
         {
           url: post.cover.src,
@@ -69,8 +67,6 @@ function articleJsonLd(post: NonNullable<ReturnType<typeof getBlogPost>>) {
     headline: post.title,
     description: post.description,
     image: new URL(post.cover.src, siteConfig.url).href,
-    datePublished: post.publishedAt,
-    dateModified: post.publishedAt,
     inLanguage: "ko-KR",
     author: {
       "@type": "Organization",
@@ -112,9 +108,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <h1 className="mt-4 text-pretty break-keep text-4xl font-medium tracking-tight text-foreground sm:text-5xl">
           {post.title}
         </h1>
-        <p className="mt-4 text-sm text-muted">
-          <time dateTime={post.publishedAt}>{formatPostDate(post.publishedAt)}</time>
-        </p>
         <div className="mt-6 h-px w-12 bg-foreground" />
         <p className="mt-6 text-pretty break-keep text-base leading-8 text-muted sm:text-lg">
           {post.lead}

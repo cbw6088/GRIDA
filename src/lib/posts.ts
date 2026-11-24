@@ -598,9 +598,3 @@ export function getBlogPostsBySlug(slugs: string[]) {
 export function getRelatedPosts(post: BlogPost) {
   return getBlogPostsBySlug(post.relatedSlugs);
 }
-
-export function formatPostDate(isoDate: string) {
-  const [year, month, day] = isoDate.split("-");
-  if (!year || !month || !day) return isoDate;
-  return `${year}.${month}.${day}`;
-}
