@@ -34,6 +34,8 @@ const fieldClassName =
   "mt-2 w-full border border-line bg-white px-3 text-sm text-foreground outline-none transition-colors duration-300 focus:border-foreground";
 
 const wallpaperOptions = ["소폭합지", "광폭합지", "실크", "합지+실크", "상담 후 결정"] as const;
+const roomCountOptions = ["1개", "2개", "3개", "4개", "5개", "6개 이상"] as const;
+const existingWallpaperOptions = ["실크", "합지", "기타", "모름"] as const;
 
 export function QuoteRequestForm() {
   const [state, formAction, pending] = useActionState(
@@ -46,6 +48,8 @@ export function QuoteRequestForm() {
     phone: "",
     space: "",
     scope: "",
+    roomCount: "",
+    existingWallpaper: "",
     schedule: "",
     location: "",
     note: "",
@@ -137,6 +141,28 @@ export function QuoteRequestForm() {
           value={values.scope}
           onChange={update}
           error={state.fieldErrors.scope}
+        />
+        <SelectField
+          id="quote-room-count"
+          name="roomCount"
+          label="방 개수 (주방 및 거실 제외)"
+          options={roomCountOptions}
+          value={values.roomCount}
+          onChange={(roomCount) =>
+            setValues((current) => ({ ...current, roomCount }))
+          }
+          error={state.fieldErrors.roomCount}
+        />
+        <SelectField
+          id="quote-existing-wallpaper"
+          name="existingWallpaper"
+          label="기존 벽지"
+          options={existingWallpaperOptions}
+          value={values.existingWallpaper}
+          onChange={(existingWallpaper) =>
+            setValues((current) => ({ ...current, existingWallpaper }))
+          }
+          error={state.fieldErrors.existingWallpaper}
         />
         <ScheduleField
           id="quote-schedule"
@@ -418,16 +444,185 @@ function CalendarIcon() {
   );
 }
 
-function Chevron({ direction }: { direction: "left" | "right" }) {
+function Chevron({ direction }: { direction: "left" | "right" | "down" }) {
+  const d =
+    direction === "left"
+      ? "M10 3.5 5.5 8 10 12.5"
+      : direction === "right"
+        ? "M6 3.5 10.5 8 6 12.5"
+        : "M3.5 6 8 10.5 12.5 6";
+
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
-      <path
-        d={direction === "left" ? "M10 3.5 5.5 8 10 12.5" : "M6 3.5 10.5 8 6 12.5"}
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.2"
-      />
+      <path d={d} fill="none" stroke="currentColor" strokeWidth="1.2" />
     </svg>
+  );
+}
+
+function SelectField({
+  id,
+  name,
+  label,
+  options,
+  value,
+  onChange,
+  error,
+}: {
+  id: string;
+  name: string;
+  label: string;
+  options: readonly string[];
+  value: string;
+  onChange: (value: string) => void;
+  error?: string;
+}) {
+  const rootRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const [open, setOpen] = useState(false);
+  const errorId = `${id}-error`;
+  const listId = `${id}-list`;
+
+  useEffect(() => {
+    if (!open) return;
+
+    function onPointerDown(event: PointerEvent) {
+      if (!rootRef.current?.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    }
+
+    function onKeyDown(event: globalThis.KeyboardEvent) {
+      if (event.key !== "Escape") return;
+      setOpen(false);
+      triggerRef.current?.focus();
+    }
+
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
+    const index = Math.max(0, options.indexOf(value));
+    window.requestAnimationFrame(() => {
+      rootRef.current
+        ?.querySelector<HTMLButtonElement>(`[data-index="${index}"]`)
+        ?.focus();
+    });
+  }, [open, options, value]);
+
+  function choose(next: string) {
+    onChange(next);
+    setOpen(false);
+    triggerRef.current?.focus();
+  }
+
+  function moveFocus(index: number) {
+    const next = Math.min(options.length - 1, Math.max(0, index));
+    rootRef.current
+      ?.querySelector<HTMLButtonElement>(`[data-index="${next}"]`)
+      ?.focus();
+  }
+
+  function onOptionKeyDown(
+    event: KeyboardEvent<HTMLButtonElement>,
+    index: number,
+  ) {
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      moveFocus(index + 1);
+    } else if (event.key === "ArrowUp") {
+      event.preventDefault();
+      moveFocus(index - 1);
+    } else if (event.key === "Home") {
+      event.preventDefault();
+      moveFocus(0);
+    } else if (event.key === "End") {
+      event.preventDefault();
+      moveFocus(options.length - 1);
+    }
+  }
+
+  return (
+    <div ref={rootRef} className={`relative ${open ? "z-20" : ""}`}>
+      <label htmlFor={id} className="text-sm text-foreground">
+        {label}
+      </label>
+      <input type="hidden" name={name} value={value} />
+      <button
+        ref={triggerRef}
+        id={id}
+        type="button"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-controls={listId}
+        aria-invalid={error ? true : undefined}
+        aria-describedby={error ? errorId : undefined}
+        onClick={() => setOpen((current) => !current)}
+        onKeyDown={(event) => {
+          if (event.key !== "ArrowDown" && event.key !== "ArrowUp") return;
+          event.preventDefault();
+          setOpen(true);
+        }}
+        className={`mt-2 flex h-11 w-full items-center justify-between border bg-white px-3 text-left text-sm outline-none transition-colors duration-300 focus:border-foreground ${
+          open ? "border-foreground" : "border-line"
+        } ${value ? "text-foreground" : "text-muted"}`}
+      >
+        <span>{value || "선택해 주세요"}</span>
+        <span
+          className={`flex shrink-0 text-muted transition-transform duration-300 ${
+            open ? "rotate-180" : ""
+          }`}
+        >
+          <Chevron direction="down" />
+        </span>
+      </button>
+      {open ? (
+        <div className="absolute right-0 left-0 z-30 mt-2 border border-line bg-white">
+          <div id={listId} role="listbox" aria-label={label}>
+          {options.map((option, index) => {
+            const selected = option === value;
+            return (
+              <button
+                key={option}
+                type="button"
+                role="option"
+                data-index={index}
+                aria-selected={selected}
+                onClick={() => choose(option)}
+                onKeyDown={(event) => onOptionKeyDown(event, index)}
+                className={`flex h-11 w-full items-center px-3 text-left text-sm ${
+                  selected
+                    ? "bg-foreground text-white"
+                    : "text-foreground hover:bg-soft"
+                }`}
+              >
+                {option}
+              </button>
+            );
+          })}
+          </div>
+          {value ? (
+            <button
+              type="button"
+              onClick={() => choose("")}
+              className="h-10 w-full border-t border-line text-sm text-muted"
+            >
+              선택 지우기
+            </button>
+          ) : null}
+        </div>
+      ) : null}
+      {error ? (
+        <p id={errorId} className="mt-2 text-sm text-[#8d3b32]">
+          {error}
+        </p>
+      ) : null}
+    </div>
   );
 }
 

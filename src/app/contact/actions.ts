@@ -1,5 +1,6 @@
 "use server";
 
+import { buildQuoteEmail } from "@/lib/quote-email";
 import {
   formatScheduleLabel,
   isSelectableSchedule,
@@ -7,14 +8,20 @@ import {
 import { siteConfig } from "@/lib/site";
 
 const wallpaperOptions = ["소폭합지", "광폭합지", "실크", "합지+실크", "상담 후 결정"] as const;
+const roomCountOptions = ["1개", "2개", "3개", "4개", "5개", "6개 이상"] as const;
+const existingWallpaperOptions = ["실크", "합지", "기타", "모름"] as const;
 
 type WallpaperOption = (typeof wallpaperOptions)[number];
+type RoomCountOption = (typeof roomCountOptions)[number];
+type ExistingWallpaperOption = (typeof existingWallpaperOptions)[number];
 
 type QuoteField =
   | "name"
   | "phone"
   | "space"
   | "scope"
+  | "roomCount"
+  | "existingWallpaper"
   | "schedule"
   | "location"
   | "note";
@@ -55,6 +62,14 @@ function isWallpaper(value: string): value is WallpaperOption {
   return wallpaperOptions.some((option) => option === value);
 }
 
+function isRoomCount(value: string): value is RoomCountOption {
+  return roomCountOptions.some((option) => option === value);
+}
+
+function isExistingWallpaper(value: string): value is ExistingWallpaperOption {
+  return existingWallpaperOptions.some((option) => option === value);
+}
+
 export async function submitQuoteRequest(
   _prev: QuoteFormState,
   formData: FormData,
@@ -67,6 +82,8 @@ export async function submitQuoteRequest(
   const phone = oneLine(readText(formData, "phone"));
   const space = oneLine(readText(formData, "space"));
   const scope = oneLine(readText(formData, "scope"));
+  const roomCount = oneLine(readText(formData, "roomCount"));
+  const existingWallpaper = oneLine(readText(formData, "existingWallpaper"));
   const schedule = oneLine(readText(formData, "schedule"));
   const location = oneLine(readText(formData, "location"));
   const wallpaper = readText(formData, "wallpaper");
@@ -85,6 +102,12 @@ export async function submitQuoteRequest(
   }
   if (scope.length > 80) {
     fieldErrors.scope = "평수는 80자 안으로 입력해 주세요.";
+  }
+  if (roomCount && !isRoomCount(roomCount)) {
+    fieldErrors.roomCount = "방 개수를 다시 선택해 주세요.";
+  }
+  if (existingWallpaper && !isExistingWallpaper(existingWallpaper)) {
+    fieldErrors.existingWallpaper = "기존 벽지를 다시 선택해 주세요.";
   }
   if (schedule && !isSelectableSchedule(schedule)) {
     fieldErrors.schedule = "오늘부터 2년 이내의 날짜를 선택해 주세요.";
@@ -118,18 +141,19 @@ export async function submitQuoteRequest(
   }
 
   const from = process.env.QUOTE_FROM_EMAIL ?? "Grida <onboarding@resend.dev>";
-  const text = [
-    "견적 요청이 도착했습니다.",
-    "",
-    `이름: ${name}`,
-    `연락처: ${phone}`,
-    `시공 공간: ${space}`,
-    `평수: ${scope || "미입력"}`,
-    `희망 일정: ${schedule ? formatScheduleLabel(schedule) : "미입력"}`,
-    `위치: ${location || "미입력"}`,
-    `벽지: ${wallpaper || "미입력"}`,
-    `추가 내용: ${note || "미입력"}`,
-  ].join("\n");
+  const email = buildQuoteEmail({
+    name,
+    phone,
+    space,
+    scope,
+    roomCount,
+    existingWallpaper,
+    scheduleLabel: schedule ? formatScheduleLabel(schedule) : "",
+    location,
+    wallpaper,
+    note,
+    receivedAt: new Date(),
+  });
 
   try {
     const response = await fetch("https://api.resend.com/emails", {
@@ -141,8 +165,9 @@ export async function submitQuoteRequest(
       body: JSON.stringify({
         from,
         to: [siteConfig.contact.email],
-        subject: `견적 요청 · ${name}`,
-        text,
+        subject: email.subject,
+        html: email.html,
+        text: email.text,
       }),
     });
 
