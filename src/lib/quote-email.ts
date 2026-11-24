@@ -21,6 +21,11 @@ type QuoteRow = {
   value: string;
 };
 
+type QuoteEmailContent = Omit<QuoteEmailInput, "receivedAt"> & {
+  receivedAt: string;
+  rows: QuoteRow[];
+};
+
 export function buildQuoteEmail(input: QuoteEmailInput) {
   const phone = displayPhone(input.phone);
   const receivedAt = formatReceivedAt(input.receivedAt);
@@ -42,9 +47,7 @@ export function buildQuoteEmail(input: QuoteEmailInput) {
   };
 }
 
-function plainText(
-  input: QuoteEmailInput & { phone: string; receivedAt: string; rows: QuoteRow[] },
-) {
+function plainText(input: QuoteEmailContent) {
   const fields = input.rows
     .map((row) => {
       const label = row.hint ? `${row.label} (${row.hint})` : row.label;
@@ -69,9 +72,7 @@ function plainText(
   ].join("\n");
 }
 
-function htmlEmail(
-  input: QuoteEmailInput & { phone: string; receivedAt: string; rows: QuoteRow[] },
-) {
+function htmlEmail(input: QuoteEmailContent) {
   const tel = input.phone.replace(/\D/g, "");
   const rows = input.rows.map(renderRow).join("");
   const note = input.note
